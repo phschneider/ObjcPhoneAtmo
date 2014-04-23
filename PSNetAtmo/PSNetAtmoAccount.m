@@ -109,6 +109,7 @@ static PSNetAtmoAccount * instance = nil;
 - (NXOAuth2Account*) account
 {
     DLogFuncName();
+    
     return self.oAuthAccount;
 }
 
@@ -171,7 +172,25 @@ static PSNetAtmoAccount * instance = nil;
 
         }
     }
+    
+    [self cleanAccounts];
 }
 
+
+- (void) cleanAccounts
+{
+    DLogFuncName();
+    if (self.account)
+    {
+        for (NXOAuth2Account * account in [[NXOAuth2AccountStore sharedStore] accounts])
+        {
+            if (account != self.account)
+            {
+                NSLog(@"Remove Account %@", account);
+                [[NXOAuth2AccountStore sharedStore] removeAccount:account];
+            }
+        }
+    }
+}
 
 @end

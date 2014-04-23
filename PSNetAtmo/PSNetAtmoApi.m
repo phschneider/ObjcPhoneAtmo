@@ -21,7 +21,8 @@
 {
     DLogFuncName();
 //    NXOAuth2Account * account = [[PSNetAtmoAccount sharedInstance] account];
-//    
+//
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 //    [NXOAuth2Request performMethod:@"GET"
 //                        onResource:[NSURL URLWithString:NETATMO_URL_USER]
 //                   usingParameters:@{@"access_token" : account.accessToken.accessToken}
@@ -39,6 +40,8 @@
 //                       {
 //                           [[PSNetAtmoUser alloc] initWithData:responseData error:nil];
 //                       }
+    
+                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 //                   }];
 }
 
@@ -54,6 +57,7 @@
     NXOAuth2Account * account = [[PSNetAtmoAccount sharedInstance] account];
     NSAssert(account,@"no account given");
 
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [NXOAuth2Request performMethod:@"GET"
                         onResource:[NSURL URLWithString:NETATMO_URL_DEVICE_LIST]
                    usingParameters:@{@"access_token" : account.accessToken.accessToken}
@@ -67,6 +71,7 @@
                        NSLog(@"Error = %@", error);
 //                       NSLog(@"Data = %@", [NSString stringWithUTF8String:[responseData bytes]]);
                        [PSNetAtmoDevice updateDevicesWithData:responseData inContext:APPDELEGATE.managedObjectContext];
+                       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 //
 //                       PSNetAtmoDeviceDB * device = [[PSNetAtmoDeviceDB alloc] initWithData:responseData error:nil];
 ////
@@ -87,7 +92,7 @@
 
     NXOAuth2Account * account = [[PSNetAtmoAccount sharedInstance] account];
     NSAssert(account,@"no account given");
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 //    __block PSNetAtmoMeasureDB * measure = nil;
 //    
 //    [NXOAuth2Request performMethod:@"GET"
@@ -101,6 +106,7 @@
 //                   responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error){
 //                       // Process the response
 //
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 //                       DEBUG_REQUEST_REPONSE_Log(@"account.accessToken.accessToken = %@", account.accessToken.accessToken);
 //                       DEBUG_REQUEST_REPONSE_Log(@"Responsed = %@", response);
 //                       DEBUG_REQUEST_REPONSE_Log(@"Error = %@", error);
@@ -126,6 +132,7 @@
     
     //    __block PSNetAtmoMeasure * measure = nil;
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [NXOAuth2Request performMethod:@"GET"
                         onResource:[NSURL URLWithString:NETATMO_URL_DEVICE_MEASSURE]
                    usingParameters:@{@"access_token" : account.accessToken.accessToken,
@@ -162,6 +169,7 @@
                            NSLog(@"Time = %f (%@) Value = %@",valueTime, [NSDate dateWithTimeIntervalSince1970:valueTime], [value objectAtIndex:0]);
                            valueTime += stepTime;
                        }
+                       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                        //                       if (!error && [responseData length])
                        //                       {
                        //                           measure = [[PSNetAtmoMeasureDB alloc] initWithData:responseData error:nil];
@@ -182,7 +190,7 @@
     NSAssert(module.moduleID,@"no module_id given");
     
 //    __block PSNetAtmoMeasure * measure = nil;
-   
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [NXOAuth2Request performMethod:@"GET"
                         onResource:[NSURL URLWithString:NETATMO_URL_DEVICE_MEASSURE]
                    usingParameters:@{@"access_token" : account.accessToken.accessToken,
@@ -205,6 +213,8 @@
                        {
                            [module updateMeasuresWithData:responseData];
                        }
+
+                       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                    }];
 }
 

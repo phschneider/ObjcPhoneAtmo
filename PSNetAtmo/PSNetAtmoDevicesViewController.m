@@ -90,7 +90,8 @@
     DLogFuncName();
     [super viewDidAppear:animated];
     
-    if (![[PSNetAtmoAccount sharedInstance] currentAccountIsValid])
+//    if (![[PSNetAtmoAccount sharedInstance] currentAccountIsValid])
+    if ( ![[PSNetAtmoAccount sharedInstance] hasAccount] )
     {
         UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer:)];
         [self.view addGestureRecognizer: tapRecognizer];
@@ -138,6 +139,7 @@
 - (void) accountUpdated:(NSNotification*)note
 {
     DLogFuncName();
+#warning todo NXOAuth2AccountStore storeAccountsInDefaultKeychain
     [self showDevices];
 }
 
