@@ -2,8 +2,8 @@
 //  PSNetAtmoDevice.m
 //  PSNetAtmo
 //
-//  Created by Philip Schneider on 14.12.13.
-//  Copyright (c) 2013 phschneider.net. All rights reserved.
+//  Created by Philip Schneider on 21.04.14.
+//  Copyright (c) 2014 phschneider.net. All rights reserved.
 //
 
 #import "PSNetAtmoDevice.h"
@@ -13,7 +13,13 @@
 
 @implementation PSNetAtmoDevice
 
+@dynamic accessCode;
+@dynamic co2Calibrating;
+@dynamic data;
 @dynamic deviceID;
+@dynamic mark;
+@dynamic stationName;
+@dynamic wifiStatus;
 @dynamic modules;
 @dynamic place;
 

@@ -1,9 +1,9 @@
 PODS:
   - Fingertips (0.3.0)
-  - GoogleAnalytics-iOS-SDK (2.0beta4)
   - HexColors (2.2.1)
   - NXOAuth2Client (1.2.5)
   - Reachability (3.1.1)
+  - Reveal-iOS-SDK (1.0.3)
   - SVProgressHUD (1.0)
   - TestFlightSDK (3.0.0)
   - TSMessages (0.9.7):
@@ -12,9 +12,9 @@ PODS:
 
 DEPENDENCIES:
   - Fingertips
-  - GoogleAnalytics-iOS-SDK (= 2.0beta4)
   - NXOAuth2Client
   - Reachability
+  - Reveal-iOS-SDK
   - SVProgressHUD
   - TestFlightSDK
   - TSMessages
@@ -22,10 +22,10 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Fingertips: 0c690bf99d1e07e4dd9e0b23f6a453fdf63a2575
-  GoogleAnalytics-iOS-SDK: 9f3ea34de46a9b84751c6e4e2c15b2151d6db411
   HexColors: 99211502e17904af7891fc8f687d0e4958a6d66e
   NXOAuth2Client: 2ad31d48b28e00663ce4fe21345ccee0cab35e01
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
+  Reveal-iOS-SDK: 8e6a6f22a9520437e4a180fe1d4e99f43b75430e
   SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
   TestFlightSDK: fe0567a897456b6f65b180541892ef0154986e01
   TSMessages: 9dd053bcf1a8985275177ebe0fb8c0f1416e92f7

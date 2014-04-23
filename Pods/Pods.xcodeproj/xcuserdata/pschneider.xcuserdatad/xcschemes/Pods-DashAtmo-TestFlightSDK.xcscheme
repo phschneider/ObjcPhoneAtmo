@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0C55A7204E6346B1B06DDE80"
+               BlueprintIdentifier = "FFB4DE4C3CC24F1C912F81FD"
                BuildableName = "libPods-DashAtmo-TestFlightSDK.a"
                BlueprintName = "Pods-DashAtmo-TestFlightSDK"
                ReferencedContainer = "container:Pods.xcodeproj">

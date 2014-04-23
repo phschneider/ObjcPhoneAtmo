@@ -2,8 +2,8 @@
 //  PSNetAtmoModuleMeasure.h
 //  PSNetAtmo
 //
-//  Created by Philip Schneider on 13.12.13.
-//  Copyright (c) 2013 phschneider.net. All rights reserved.
+//  Created by Philip Schneider on 21.04.14.
+//  Copyright (c) 2014 phschneider.net. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSNumber * co2;
 @property (nonatomic, retain) NSData * data;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSNumber * humidy;
+@property (nonatomic, retain) NSNumber * humidity;
 @property (nonatomic, retain) NSNumber * noise;
 @property (nonatomic, retain) NSNumber * pressure;
 @property (nonatomic, retain) NSNumber * temperature;

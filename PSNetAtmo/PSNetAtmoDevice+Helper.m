@@ -41,6 +41,7 @@
 
 + (void)updateDevicesWithData:(NSData*)data inContext:(NSManagedObjectContext*)context
 {
+    DLogFuncName();
     NSError *localError = nil;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
     NSLog(@"ParsedObject = %@", dict);
@@ -60,7 +61,6 @@
         {           
             [PSNetAtmoModule updateModuleFromJsonDict:module inContext:context];
         }
-        
         
         for (NSDictionary* device in devices)
         {
@@ -139,11 +139,11 @@
 + (void)updateDeviceFromJsonDict:(NSDictionary*)deviceDict inContext:(NSManagedObjectContext*)context
 {
     DLogFuncName();
-    PSNetAtmoPrivateDevice * device = [PSNetAtmoDevice findByID:[deviceDict objectForKey:@"_id"] context:context];
+    PSNetAtmoDevice * device = [PSNetAtmoDevice findByID:[deviceDict objectForKey:@"_id"] context:context];
     
     if (!device)
     {
-        device = [NSEntityDescription insertNewObjectForEntityForName:NETATMO_ENTITY_PRIVATE_DEVICE inManagedObjectContext:context];
+        device = [NSEntityDescription insertNewObjectForEntityForName:NETATMO_ENTITY_DEVICE inManagedObjectContext:context];
     }
     
     device.stationName = [deviceDict objectForKey:@"station_name"];
@@ -160,6 +160,26 @@
             [device addModulesObject:module];
             module.device = device;
         }
+    }
+    
+    
+    // Add Module for main device
+    NSMutableDictionary *moduleDictFromMainDevice = [[NSMutableDictionary alloc] init];
+    [moduleDictFromMainDevice setObject:device.deviceID forKey:@"_id"];
+    [moduleDictFromMainDevice setObject:device.deviceID forKey:@"main_device"];
+    [moduleDictFromMainDevice setObject:[deviceDict objectForKey:@"module_name"] forKey:@"module_name"];
+    [moduleDictFromMainDevice setObject:([deviceDict objectForKey:@"battery_vp"]) ? [deviceDict objectForKey:@"battery_vp"] : @0 forKey:@"battery_vp"];
+    [moduleDictFromMainDevice setObject:[deviceDict objectForKey:@"rf_amb_status"] forKey:@"rf_status"];
+    [moduleDictFromMainDevice setObject:[deviceDict objectForKey:@"type"] forKey:@"type"];
+    [moduleDictFromMainDevice setObject:[deviceDict objectForKey:@"data_type"] forKey:@"data_type"];
+    
+    [PSNetAtmoModule updateModuleFromJsonDict:moduleDictFromMainDevice inContext:context];
+    
+    PSNetAtmoModule * module = [PSNetAtmoModule findByID:device.deviceID context:context];
+    if (module && ![device.modules containsObject:module])
+    {
+        [device addModulesObject:module];
+        module.device = device;
     }
 }
 

@@ -33,6 +33,8 @@
 #define NETATMO_ENTITY_PRIVATE_DEVICE   @"PSNetAtmoPrivateDevice"
 #define NETATMO_ENTITY_PUBLIC_DEVICE    @"PSNetAtmoPublicDevice"
 #define NETATMO_ENTITY_MODULE           @"PSNetAtmoModule"
+#define NETATMO_ENTITY_MODULE_MEASURE   @"PSNetAtmoModuleMeasure"
+#define NETATMO_ENTITY_MODULE_DATA_TYPE @"PSNetAtmoModuleDataType"
 
 #import <NXOAuth2Client/NXOAuth2.h>
 

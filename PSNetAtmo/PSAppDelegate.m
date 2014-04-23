@@ -9,8 +9,7 @@
 
 #import "PSAppDelegate.h"
 
-#import "PSNetAtmoAppVersion.h"
-#import "PSNetAtmoMainViewController.h"
+#import "PSNetAtmoDevicesViewController.h"
 #import "PSNetAtmoNavigationController.h"
 #import <MBFingerTipWindow.h>
 
@@ -78,17 +77,13 @@
     // iOS5 Warning - NO Social Framework
     // iOS5 Warning - NO Ad Framework
 
-
-    UIViewController * rootViewController = [[PSNetAtmoMainViewController alloc] init];
-    self.window = [[MBFingerTipWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+    UIViewController * rootViewController = [[PSNetAtmoDevicesViewController alloc] init];
     PSNetAtmoNavigationController * navController = [[PSNetAtmoNavigationController alloc] initWithRootViewController:rootViewController];
+    
+    self.window = [[MBFingerTipWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = navController;
-
     [self.window makeKeyAndVisible];
     
-    [PSNetAtmoAppVersion sharedInstance];
-
     return YES;
 }
 

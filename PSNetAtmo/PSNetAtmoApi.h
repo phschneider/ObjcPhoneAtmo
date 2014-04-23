@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
+@class PSNetAtmoDevice;
+@class PSNetAtmoModule;
+
 @interface PSNetAtmoApi : NSObject
 
 + (void) publicMeassuresForSw:(CLLocationCoordinate2D)sw andNe:(CLLocationCoordinate2D)ne;
@@ -18,5 +21,8 @@
 //+ (PSNetAtmoMeasureDB *) measureForDevice:(NSString*)deviceID andModule:(NSString*)module;
 
 + (void) devices;
++ (void) measureForDevice:(NSString*)deviceID;
++ (void) measureForDevice:(PSNetAtmoDevice*)device andModule:(PSNetAtmoModule*)module;
++ (void) lastMeasureForDevice:(PSNetAtmoDevice*)device andModule:(PSNetAtmoModule*)module;
 
 @end

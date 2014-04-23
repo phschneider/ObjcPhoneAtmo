@@ -10,6 +10,9 @@
 
 @interface PSNetAtmoModuleMeasure (Helper)
 
-- (id) initWithData:(NSData*)data error:(NSError **)error;
++ (PSNetAtmoModuleMeasure *)finyByModule:(PSNetAtmoModule *)module andDate:(NSDate *)date context:(NSManagedObjectContext *)context;
++ (BOOL) existsInDB:(PSNetAtmoModule *)module date:(NSDate*)date context:(NSManagedObjectContext*) context;
+
+- (void) updateWithDictionary:(NSDictionary *)dataDict;
 
 @end

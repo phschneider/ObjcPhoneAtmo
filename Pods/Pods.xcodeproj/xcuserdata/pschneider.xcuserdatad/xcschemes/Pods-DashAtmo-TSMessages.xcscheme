@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2FCFD6DE8A8246289B297958"
+               BlueprintIdentifier = "A012A2E6CF9F45B8AFCEC5CA"
                BuildableName = "libPods-DashAtmo-TSMessages.a"
                BlueprintName = "Pods-DashAtmo-TSMessages"
                ReferencedContainer = "container:Pods.xcodeproj">

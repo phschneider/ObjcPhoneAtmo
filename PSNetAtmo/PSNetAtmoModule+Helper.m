@@ -8,8 +8,9 @@
 
 
 #import "PSNetAtmo.h"
+#import "PSAppDelegate.h"
 #import "PSNetAtmoModule+Helper.h"
-
+#import "PSNetAtmoModuleDataType+Helper.h"
 
 //@interface PSNetAtmoModuleDB ()
 //
@@ -44,7 +45,7 @@
     [request setEntity:entityDescription];
     [request setFetchLimit:1];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deviceID == %@)", moduleID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(moduleID == %@)", moduleID];
     [request setPredicate:predicate];
     
     NSError *error = nil;
@@ -70,9 +71,24 @@
         module = [NSEntityDescription insertNewObjectForEntityForName:NETATMO_ENTITY_MODULE inManagedObjectContext:context];
     }
 
-    module.deviceID = [dict objectForKey:@"_id"];
+    module.moduleID = [dict objectForKey:@"_id"];
+    module.deviceID = [dict objectForKey:@"main_device"];
     module.battery = [dict objectForKey:@"battery_vp"];
     module.firmware = [dict objectForKey:@"firmware"];
+    
+    for (NSString * dataTypeString in [dict objectForKey:@"data_type"])
+    {
+        PSNetAtmoModuleDataType * dataType = [PSNetAtmoModuleDataType finyByName:dataTypeString context:context];
+        if (!dataType)
+        {
+            dataType = [NSEntityDescription insertNewObjectForEntityForName:NETATMO_ENTITY_MODULE_DATA_TYPE inManagedObjectContext:context];
+            dataType.name = dataTypeString;
+        }
+        
+        [module addDataTypesObject:dataType];
+        [dataType addModulesObject:module];
+    }
+    
     //    module.wifiStatus = [dict objectForKey:@"wifi_status"];
 //    module.accessCode = [dict objectForKey:@"access_code"];
 //    module.co2Calibrating = [dict objectForKey:@"co2_calibrating"];
@@ -91,9 +107,6 @@
     {
         module.manualPairing = [dict objectForKey:@"manual_pairing"];
     }
-    
-#warning TODO    "main_device" = "70:ee:50:00:51:26";
-#warning TODO  "data_type" =     (    Temperature,    Humidity);
     
     module.createdAt = [NSDate dateWithTimeIntervalSince1970:[[[dict objectForKey:@"date_creation"] objectForKey:@"sec"] integerValue]];
     module.lastAlarm = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"last_alarm_stored"] integerValue]];
@@ -158,6 +171,82 @@
 //    return self;
 //}
 
+- (void) refresh
+{
+    DLogFuncName();
+    [PSNetAtmoApi measureForDevice:self.device andModule:self];
+}
+
+
+- (void) requestLastMeasure
+{
+    DLogFuncName();
+    [PSNetAtmoApi lastMeasureForDevice:self.device andModule:self];
+}
+
+
+- (void) refreshDevice
+{
+    DLogFuncName();
+    NSLog(@"TODO");
+}
+
+
+- (NSString *)typeStringForLastMeasureRequest
+{
+    DLogFuncName();
+    return [[[self.dataTypes allObjects] valueForKey:@"name"] componentsJoinedByString:@","];
+}
+
+
+- (void) updateMeasuresWithData:(NSData *)data
+{
+    DLogFuncName();
+    
+    NSError *localError = nil;
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
+    NSLog(@"ParsedObject = %@", parsedObject);
+   
+    
+    // [[parsedObject objectForKey:@"body"] objectAtIndex:0]
+    // [[[parsedObject objectForKey:@"body"] objectAtIndex:0] objectForKey:@"step_time"]
+    // [[[parsedObject objectForKey:@"body"] objectAtIndex:0] objectForKey:@"beg_time"]
+    
+    NSDictionary *body = [[parsedObject objectForKey:@"body"] objectAtIndex:0];
+    NSString *status = [body objectForKey:@"status"];
+    NSTimeInterval serverTime = [[body objectForKey:@"time_server"] floatValue];
+    NSTimeInterval execTime = [[body objectForKey:@"time_exec"] floatValue];
+    NSTimeInterval beginTime = [[body objectForKey:@"beg_time"] floatValue];
+    NSTimeInterval stepTime = [[body objectForKey:@"step_time"] floatValue];
+    NSTimeInterval valueTime = beginTime;
+    NSArray *values = [[[parsedObject objectForKey:@"body"] objectAtIndex:0] objectForKey:@"value"];
+    
+    //Vermutung: Die Reihenfolge der DataTypesString muss die gleiche sein wie bei der Anfrage
+    NSArray *dataTypes = [[[self typeStringForLastMeasureRequest] lowercaseString] componentsSeparatedByString:@","] ;
+    
+    NSLog(@"ServerTime = %@", [NSDate dateWithTimeIntervalSince1970:serverTime]);
+    for (NSArray *value in values)
+    {
+        NSDictionary *dataValues = [NSDictionary dictionaryWithObjects:value forKeys:dataTypes];
+        NSDate *measureDate = [NSDate dateWithTimeIntervalSince1970:valueTime];
+        NSLog(@"Time = %f (%@) DataValues = %@ DataTypes = %@ Value = %@",valueTime,measureDate , dataValues, dataTypes, value);
+        valueTime += stepTime;
+        
+        PSNetAtmoModuleMeasure *measure = [PSNetAtmoModuleMeasure finyByModule:self andDate:measureDate context:self.managedObjectContext];
+        if (!measure)
+        {
+            measure = [NSEntityDescription insertNewObjectForEntityForName:NETATMO_ENTITY_MODULE_MEASURE inManagedObjectContext:self.managedObjectContext];
+            measure.date = measureDate;
+            [self addMeasuresObject:measure];
+            measure.module = self;
+        }
+        
+        [measure updateWithDictionary:dataValues];
+    }
+    
+    [APPDELEGATE saveContext];
+}
+
 
 - (BOOL) hasTemperature
 {
@@ -200,31 +289,84 @@
    self.lastDataStore = dict;
 }
 
-- (NSString*) lastTemp
+- (NSString*) lastTemperature
 {
     DLogFuncName();
-    return @"";
+    
+    NSString *tempString = @"- °";
+    NSArray *measures = [self.measures sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
+    measures = [measures filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"temperature != -100"]];
+    
+    if ([measures count] > 0)
+    {
+        tempString = [NSString stringWithFormat:@"%.1f°", [[[measures lastObject] temperature] floatValue] ];
+    }
+    
+    NSLog(@"TempString = %@",tempString);
+    return tempString;
 }
 
 
-- (NSString*) lastCo2
+- (NSString*) lastHumidity
 {
     DLogFuncName();
-    return @"";
-}
-
-
-- (NSString*) lastHumidy
-{
-    DLogFuncName();
-    return @"";
+    
+    NSString *tempString = @"- %";
+    NSArray *measures = [self.measures sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
+    measures = [measures filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"humidity != -100"]];
+    
+    if ([measures count] > 0)
+    {
+        tempString = [NSString stringWithFormat:@"%.1f%%", [[[measures lastObject] humidity] floatValue] ];
+    }
+    
+    NSLog(@"TempString = %@",tempString);
+    return tempString;
 }
 
 
 - (NSString*) lastPressure
 {
     DLogFuncName();
-    return @"";
+    
+    NSString *tempString = @"-";
+    NSArray *measures = [self.measures sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
+    measures = [measures filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pressure != -100"]];
+    
+    if ([measures count] > 0)
+    {
+        tempString = [NSString stringWithFormat:@"%.1f", [[[measures lastObject] pressure] floatValue] ];
+    }
+    
+    NSLog(@"TempString = %@",tempString);
+    return tempString;
+}
+
+
+
+- (NSString*) lastCo2
+{
+    DLogFuncName();
+    
+    NSString *tempString = @"-";
+    NSArray *measures = [self.measures sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
+    measures = [measures filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"co2 != -100"]];
+    
+    if ([measures count] > 0)
+    {
+        tempString = [NSString stringWithFormat:@"%.1f", [[[measures lastObject] co2] floatValue] ];
+    }
+    
+    NSLog(@"TempString = %@",tempString);
+    return tempString;
+}
+
+
+
+- (NSArray *)temperatures
+{
+    DLogFuncName();
+    return nil;
 }
 
 

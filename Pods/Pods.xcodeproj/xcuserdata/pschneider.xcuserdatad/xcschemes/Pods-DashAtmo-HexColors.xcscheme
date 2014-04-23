@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "56DFBF7BE4BA4464A78FAFEB"
+               BlueprintIdentifier = "BA9A949F25A24FC1834371B7"
                BuildableName = "libPods-DashAtmo-HexColors.a"
                BlueprintName = "Pods-DashAtmo-HexColors"
                ReferencedContainer = "container:Pods.xcodeproj">

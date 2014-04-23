@@ -13,7 +13,19 @@
 + (PSNetAtmoModule *)findByID:(NSString *)moduleID context:(NSManagedObjectContext *)context;
 + (void)updateModuleFromJsonDict:(NSDictionary*)dict inContext:(NSManagedObjectContext*)context;
 
+
 - (int) tag;
+- (void) refresh;
+
+- (void) requestLastMeasure;
+- (NSString *)typeStringForLastMeasureRequest;
+
+- (void) updateMeasuresWithData:(NSData *)data;
+- (NSString*) lastTemperature;
+- (NSString*) lastHumidity;
+- (NSString*) lastPressure;
+- (NSString*) lastCo2;
+
 //@property (nonatomic) NSString *moduleID;
 //@property (nonatomic) NSString *moduleName;
 

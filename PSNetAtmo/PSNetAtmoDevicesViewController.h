@@ -10,6 +10,6 @@
 #import "PSNetAtmoViewController.h"
 
 
-@interface PSNetAtmoDevicesViewController : PSNetAtmoViewController <NSFetchedResultsControllerDelegate>
+@interface PSNetAtmoDevicesViewController : PSNetAtmoViewController <NSFetchedResultsControllerDelegate, UIScrollViewDelegate>
 
 @end

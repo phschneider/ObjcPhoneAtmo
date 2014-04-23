@@ -6,35 +6,67 @@
 //  Copyright (c) 2013 phschneider.net. All rights reserved.
 //
 
-
+#import "PSNetAtmo.h"
+#import "PSAppDelegate.h"
 #import "PSNetAtmoModuleMeasure+Helper.h"
 
 @implementation PSNetAtmoModuleMeasure (Helper)
 
-- (id) initWithData:(NSData*)data error:(NSError **)error
++ (PSNetAtmoModuleMeasure *)finyByModule:(PSNetAtmoModule *)module andDate:(NSDate *)date context:(NSManagedObjectContext *)context
 {
     DLogFuncName();
-    self = [super init];
-    if(self)
-    {
-        //        {"status":"ok","body":{"_id":"5165a31f187759e7a1000035","administrative":{"country":"DE","reg_locale":"de-DE","lang":"de-DE","unit":0,"windunit":0,"pressureunit":0,"feel_like_algo":0},"date_creation":{"sec":1365615391,"usec":0},"devices":["70:ee:50:00:51:26"],"mail":"info@philip-schneider.com","timeline_not_read":0},"time_exec":1.4236359596252,"time_server":1385229859}
-        NSError *localError = nil;
-        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
-        NSLog(@"ParsedObject = %@", parsedObject);
-        
-        if (localError != nil) {
-            *error = localError;
-            return nil;
-        }
-        
-//        self.devices = [[parsedObject objectForKey:@"body"] objectForKey:@"devices"];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NETATMO_ENTITY_MODULE_MEASURE inManagedObjectContext:context];
+    [request setEntity:entityDescription];
+    [request setFetchLimit:1];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(module == %@ AND date == %@)", module, date];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    PSNetAtmoModuleMeasure * measure = nil;
+    
+    if (!error && [array count] > 0) {
+        measure = [array lastObject];
     }
-    return self;
+    
+    return measure;
 }
 
 
++ (BOOL) existsInDB:(PSNetAtmoModule *)module date:(NSDate*)date context:(NSManagedObjectContext*) context
+{
+    DLogFuncName();
+    return ([PSNetAtmoModuleMeasure finyByModule:module andDate:date context:(NSManagedObjectContext *)context] != nil);
+}
 
 
+- (void) updateWithDictionary:(NSDictionary *)dataDict
+{
+    DLogFuncName();
+    
+    for (NSString *keyString in @[ @"noise", @"co2", @"humidity", @"pressure", @"temperature"])
+    {
+        if ([dataDict objectForKey:keyString])
+        {
+            if ( [self valueForKey:keyString])
+            {
+                [self setValue:[dataDict objectForKey:keyString] forKey:keyString];
+            }
+            else
+            {
+                NSLog(@"No value for key %@", keyString);
+            }
+        }
+        else
+        {
+            NSLog(@"No value for key %@", keyString);
+        }
+    }
+}
 
 
 @end

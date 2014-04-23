@@ -140,15 +140,15 @@ static PSNetAtmoAccount * instance = nil;
 - (void) requestAccountWithPreparedAuthorizationURLHandler
 {
     DLogFuncName();
-    if (![self currentAccountIsValid])
-    {
+//    if (![self currentAccountIsValid])
+//    {
         [[NXOAuth2AccountStore sharedStore] requestAccessToAccountWithType:ACCOUNT_TYPE
                                        withPreparedAuthorizationURLHandler:^(NSURL *preparedURL){
 
                                            [[NSNotificationCenter defaultCenter] postNotificationName:PSNETATMO_RECEIVED_AUTH_URL object:nil userInfo:@{ @"url" : preparedURL} ];
 
                                        }];
-    }
+//    }
 }
 
 

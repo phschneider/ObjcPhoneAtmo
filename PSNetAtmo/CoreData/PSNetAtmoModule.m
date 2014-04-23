@@ -2,8 +2,8 @@
 //  PSNetAtmoModule.m
 //  PSNetAtmo
 //
-//  Created by Philip Schneider on 14.12.13.
-//  Copyright (c) 2013 phschneider.net. All rights reserved.
+//  Created by Philip Schneider on 21.04.14.
+//  Copyright (c) 2014 phschneider.net. All rights reserved.
 //
 
 #import "PSNetAtmoModule.h"
@@ -17,16 +17,17 @@
 
 @dynamic battery;
 @dynamic createdAt;
+@dynamic deviceID;
 @dynamic firmware;
 @dynamic lastAlarm;
 @dynamic lastEvent;
 @dynamic lastMessage;
 @dynamic lastSeen;
 @dynamic manualPairing;
+@dynamic name;
 @dynamic rfStatus;
 @dynamic type;
-@dynamic deviceID;
-@dynamic name;
+@dynamic moduleID;
 @dynamic dataTypes;
 @dynamic device;
 @dynamic lastDataStore;

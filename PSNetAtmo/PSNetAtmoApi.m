@@ -69,7 +69,7 @@
                        [PSNetAtmoDevice updateDevicesWithData:responseData inContext:APPDELEGATE.managedObjectContext];
 //
 //                       PSNetAtmoDeviceDB * device = [[PSNetAtmoDeviceDB alloc] initWithData:responseData error:nil];
-//                       
+////
 //                       NSLog(@"Schlafzimmer = %@", [device lastDataStoreForModule:@"03:00:00:00:3d:2a"]);
 //                       NSLog(@"Balkon = %@", [device lastDataStoreForModule:@"02:00:00:00:4f:30"]);
 //                       NSLog(@"Badezimmer = %@", [device lastDataStoreForModule:@"03:00:00:00:43:56"]);
@@ -84,8 +84,10 @@
 {
     DLogFuncName();
     NSLog(@"DeviceID = %@",deviceID);
-//    
-//    NXOAuth2Account * account = [[PSNetAtmoAccount sharedInstance] account];
+
+    NXOAuth2Account * account = [[PSNetAtmoAccount sharedInstance] account];
+    NSAssert(account,@"no account given");
+    
 //    __block PSNetAtmoMeasureDB * measure = nil;
 //    
 //    [NXOAuth2Request performMethod:@"GET"
@@ -113,37 +115,98 @@
 }
 
 
-+ (void) measureForDevice:(NSString*)deviceID andModule:(NSString*)moduleID
++ (void) measureForDevice:(PSNetAtmoDevice*)device andModule:(PSNetAtmoModule*)module
 {
     DLogFuncName();
-    NSLog(@"DeviceID = %@",deviceID);
     
-//    NXOAuth2Account * account = [[PSNetAtmoAccount sharedInstance] account];
-//    __block PSNetAtmoMeasure * measure = nil;
-//    
-//    [NXOAuth2Request performMethod:@"GET"
-//                        onResource:[NSURL URLWithString:NETATMO_URL_DEVICE_MEASSURE]
-//                   usingParameters:@{@"access_token" : account.accessToken.accessToken,
-//                                     @"device_id" : deviceID,
-//                                     @"scale" : @"3hours",
-//                                     @"module_id" : moduleID,
-//                                     @"type" : @"Temperature"}
-//                       withAccount:account
-//               sendProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal)  {  }// e.g., update a progress indicator }
-//                   responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error){
-//                       // Process the response
-//
-//                       DEBUG_REQUEST_REPONSE_Log(@"account.accessToken.accessToken = %@", account.accessToken.accessToken);
-//                       DEBUG_REQUEST_REPONSE_Log(@"Responsed = %@", response);
-//                       DEBUG_REQUEST_REPONSE_Log(@"Error = %@", error);
-//                       DEBUG_REQUEST_REPONSE_Log(@"Data = %@", [NSString stringWithUTF8String:[responseData bytes]]);
-//                       
-//                       if (!error && [responseData length])
-//                       {
-//                           measure = [[PSNetAtmoMeasureDB alloc] initWithData:responseData error:nil];
-//                       }
-//                       
-//                   }];
+    NXOAuth2Account * account = [[PSNetAtmoAccount sharedInstance] account];
+    NSAssert(account,@"no account given");
+    NSAssert(device.deviceID,@"no device_id given");
+    NSAssert(module.moduleID,@"no module_id given");
+    
+    //    __block PSNetAtmoMeasure * measure = nil;
+    
+    [NXOAuth2Request performMethod:@"GET"
+                        onResource:[NSURL URLWithString:NETATMO_URL_DEVICE_MEASSURE]
+                   usingParameters:@{@"access_token" : account.accessToken.accessToken,
+                                     @"device_id" : device.deviceID,
+                                     @"scale" : @"max",
+                                     @"module_id" : module.moduleID,
+                                     @"type" : @"Temperature"}
+                       withAccount:account
+               sendProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal)  {  }// e.g., update a progress indicator }
+                   responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error){
+                       // Process the response
+                       
+                       NSLog(@"account.accessToken.accessToken = %@", account.accessToken.accessToken);
+                       NSLog(@"Responsed = %@", response);
+                       NSLog(@"Error = %@", error);
+                       NSLog(@"Data = %@", [NSString stringWithUTF8String:[responseData bytes]]);
+                       
+                       NSError *localError = nil;
+                       NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&localError];
+                       NSLog(@"ParsedObject = %@", parsedObject);
+                       
+                       // [[parsedObject objectForKey:@"body"] objectAtIndex:0]
+                       // [[[parsedObject objectForKey:@"body"] objectAtIndex:0] objectForKey:@"step_time"]
+                       // [[[parsedObject objectForKey:@"body"] objectAtIndex:0] objectForKey:@"beg_time"]
+                       
+                       NSDictionary *body = [[parsedObject objectForKey:@"body"] objectAtIndex:0];
+                       NSTimeInterval beginTime = [[body objectForKey:@"beg_time"] floatValue];
+                       NSTimeInterval stepTime = [[body objectForKey:@"step_time"] floatValue];
+                       NSTimeInterval valueTime = beginTime;
+                       NSArray *values = [[[parsedObject objectForKey:@"body"] objectAtIndex:0] objectForKey:@"value"];
+                       
+                       for (NSArray *value in values)
+                       {
+                           NSLog(@"Time = %f (%@) Value = %@",valueTime, [NSDate dateWithTimeIntervalSince1970:valueTime], [value objectAtIndex:0]);
+                           valueTime += stepTime;
+                       }
+                       //                       if (!error && [responseData length])
+                       //                       {
+                       //                           measure = [[PSNetAtmoMeasureDB alloc] initWithData:responseData error:nil];
+                       //                       }
+                       
+                   }];
 }
+
+
+
++ (void) lastMeasureForDevice:(PSNetAtmoDevice*)device andModule:(PSNetAtmoModule*)module
+{
+    DLogFuncName();
+    
+    NXOAuth2Account * account = [[PSNetAtmoAccount sharedInstance] account];
+    NSAssert(account,@"no account given");
+    NSAssert(device.deviceID,@"no device_id given");
+    NSAssert(module.moduleID,@"no module_id given");
+    
+//    __block PSNetAtmoMeasure * measure = nil;
+   
+    [NXOAuth2Request performMethod:@"GET"
+                        onResource:[NSURL URLWithString:NETATMO_URL_DEVICE_MEASSURE]
+                   usingParameters:@{@"access_token" : account.accessToken.accessToken,
+                                     @"device_id" : device.deviceID,
+                                     @"scale" : @"max",
+                                     @"module_id" : module.moduleID,
+                                     @"date_end": @"last",
+                                     @"type" : [module typeStringForLastMeasureRequest] }
+                       withAccount:account
+               sendProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal)  {  }// e.g., update a progress indicator }
+                   responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error){
+                       // Process the response
+
+                       
+                       NSLog(@"account.accessToken.accessToken = %@", account.accessToken.accessToken);
+                       NSLog(@"Responsed = %@", response);
+                       NSLog(@"Error = %@", error);
+                       
+                       if (!error && [responseData length])
+                       {
+                           [module updateMeasuresWithData:responseData];
+                       }
+                   }];
+}
+
 
 @end

@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 phschneider.net. All rights reserved.
 //
 
-#import "PSNetAtmoViewController.h"
+#import "PSNetAtmoTableViewController.h"
 
-@interface PSNetAtmoDeviceViewController : PSNetAtmoViewController <UITableViewDataSource, UITableViewDelegate>
+@interface PSNetAtmoDeviceViewController : PSNetAtmoTableViewController
+
+- (id) initWithDevice:(PSNetAtmoDevice*)device;
 
 @end
