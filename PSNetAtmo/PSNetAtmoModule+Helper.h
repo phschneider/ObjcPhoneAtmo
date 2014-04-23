@@ -21,6 +21,8 @@
 - (NSString *)typeStringForLastMeasureRequest;
 
 - (void) updateMeasuresWithData:(NSData *)data;
+
+- (PSNetAtmoModuleMeasure*) lastMeasure;
 - (NSString*) lastTemperature;
 - (NSString*) lastHumidity;
 - (NSString*) lastPressure;

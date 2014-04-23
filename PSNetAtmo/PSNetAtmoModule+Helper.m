@@ -228,13 +228,17 @@
     for (NSArray *value in values)
     {
         NSDictionary *dataValues = [NSDictionary dictionaryWithObjects:value forKeys:dataTypes];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         NSDate *measureDate = [NSDate dateWithTimeIntervalSince1970:valueTime];
-        NSLog(@"Time = %f (%@) DataValues = %@ DataTypes = %@ Value = %@",valueTime,measureDate , dataValues, dataTypes, value);
+        NSLog(@"Time = %f (%@) DataValues = %@ DataTypes = %@ Value = %@",valueTime,[dateFormatter stringFromDate:measureDate] , dataValues, dataTypes, value);
         valueTime += stepTime;
         
         PSNetAtmoModuleMeasure *measure = [PSNetAtmoModuleMeasure finyByModule:self andDate:measureDate context:self.managedObjectContext];
         if (!measure)
         {
+            NSLog(@"Add Meassure for date %@",measureDate);
             measure = [NSEntityDescription insertNewObjectForEntityForName:NETATMO_ENTITY_MODULE_MEASURE inManagedObjectContext:self.managedObjectContext];
             measure.date = measureDate;
             [self addMeasuresObject:measure];
@@ -288,6 +292,16 @@
     DLogFuncName();
    self.lastDataStore = dict;
 }
+
+
+- (PSNetAtmoModuleMeasure*) lastMeasure
+{
+    DLogFuncName();
+    
+    NSArray *measures = [self.measures sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
+    return [measures lastObject];
+}
+
 
 - (NSString*) lastTemperature
 {
@@ -360,7 +374,6 @@
     NSLog(@"TempString = %@",tempString);
     return tempString;
 }
-
 
 
 - (NSArray *)temperatures

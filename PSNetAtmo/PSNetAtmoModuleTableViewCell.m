@@ -8,8 +8,12 @@
 
 #import "UIColor+Random.h"
 #import "PSNetAtmoModuleTableViewCell.h"
+
 #import "PSNetAtmoModule.h"
 #import "PSNetAtmoModule+Helper.h"
+
+#import "PSNetAtmoModuleMeasure.h"
+#import "PSNetAtmoModuleMeasure+Helper.h"
 
 #define LABEL_WIDTH_TEMP        130
 #define LABEL_WIDTH_HUMIDITY    50
@@ -27,6 +31,8 @@
 @property (nonatomic) UILabel *noiseLabel;
 @property (nonatomic) UILabel *wifiLabel;
 @property (nonatomic) UILabel *batteryLabel;
+@property (nonatomic) UILabel *dateLabel;
+@property (nonatomic) UIView *line;
 @end
 
 @implementation PSNetAtmoModuleTableViewCell
@@ -38,6 +44,15 @@
     if (self) {
         // Initialization code
         CGRect frame = self.bounds;
+        frame.size.height = 0.5;
+        frame.origin.x = 15;
+//        self.line = [[UIView alloc] initWithFrame:frame];
+//        self.line.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//        self.line.backgroundColor = [UIColor lightGrayColor];
+//        [self.contentView addSubview:self.line];
+        
+        frame = self.bounds;
+        frame.size.height = ceil(self.bounds.size.height / 2);
         frame.origin.x = 15;
         frame.size.width = self.bounds.size.width - LABEL_WIDTH_TEMP;
         
@@ -46,6 +61,7 @@
         
         self.nameLabel = [self defaultLabelWithText:@"name"];
         self.nameLabel.textAlignment = NSTextAlignmentLeft;
+        self.nameLabel.backgroundColor = [UIColor whiteColor];
         self.nameLabel.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
         self.nameLabel.frame = frame;
         [self.contentView addSubview:self.nameLabel];
@@ -100,6 +116,18 @@
         self.co2Label.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:18];
         [self.contentView addSubview:self.co2Label];
 
+        frame = self.bounds;
+        frame.size.height = ceil(self.bounds.size.height / 4);
+        frame.size.width =  ceil(self.bounds.size.width / 2);
+        frame.origin.x = self.nameLabel.frame.origin.x;
+        frame.origin.y = self.nameLabel.frame.origin.y +  + self.nameLabel.frame.size.height;
+        
+        self.dateLabel = [self defaultLabelWithText:@"01.01.1970 14:30"];
+        self.dateLabel.autoresizingMask = UIViewAutoresizingNone;
+        self.dateLabel.frame = frame;
+        self.dateLabel.textAlignment = NSTextAlignmentLeft;
+        self.dateLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:10];
+        [self.contentView addSubview:self.dateLabel];
 //
 //        self.nameLabel = [self defaultLabelWithText:@""];
 //        self.nameLabel.font = [UIFont boldSystemFontOfSize:22];
@@ -141,9 +169,9 @@
     label.textColor = [UIColor blackColor];
 //    label.shadowColor = [UIColor darkGrayColor];
     label.shadowOffset = CGSizeMake(-2,-2);
-    label.backgroundColor = [UIColor randomColor];
+//    label.backgroundColor = [UIColor randomColor];
+    label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;
-    
     return label;
 }
 
@@ -154,6 +182,19 @@
     [super layoutSubviews];
     
     CGRect frame = self.bounds;
+    frame.size.height = ceil(self.bounds.size.height / 3);
+    frame.origin.x = 15;
+    frame.size.width = self.bounds.size.width - LABEL_WIDTH_TEMP;
+    self.nameLabel.frame = frame;
+    
+//    CGSize size = [self.nameLabel.text sizeWithAttributes:@{NSFontAttributeName:self.nameLabel.font}];
+//    frame = self.nameLabel.frame;
+//    frame.size = CGSizeMake(size.width + 15, frame.size.height);
+//    self.nameLabel.frame = frame;
+//
+//    self.line.center = CGPointMake(self.line.center.x, self.nameLabel.center.y);
+    
+    frame = self.bounds;
     frame.size.height = ceil(self.bounds.size.height / 2);
     frame.size.width = LABEL_WIDTH_HUMIDITY;
     frame.origin.x = 15;
@@ -179,13 +220,25 @@
     
     frame = self.bounds;
     frame.size.width = LABEL_WIDTH_TEMP;
-    frame.origin.x = self.bounds.size.width - frame.size.width;
+    frame.origin.x = self.bounds.size.width - frame.size.width - 5;
     self.tempLabel.frame = frame;
     
-    for (UIView *view in self.contentView.subviews)
-    {
-        view.backgroundColor = [UIColor clearColor];
-    }
+    
+    frame.size.height = ceil(self.bounds.size.height / 4);
+    frame.size.width =  ceil(self.bounds.size.width / 2);
+    frame.origin.x = self.nameLabel.frame.origin.x;
+    frame.origin.y = self.nameLabel.frame.origin.y +  + self.nameLabel.frame.size.height;
+    self.dateLabel.frame = frame;
+    
+//    for (UIView *view in self.contentView.subviews)
+//    {
+//        if ([view isKindOfClass:[UILabel class]])
+//        {
+//            view.backgroundColor = [UIColor clearColor];
+//        }
+//    }
+    
+//    self.nameLabel.backgroundColor = [UIColor redColor];
 }
 
 
@@ -193,11 +246,20 @@
 - (void) setDeviceModule:(PSNetAtmoModule *)deviceModule
 {
     DLogFuncName();
-    self.nameLabel.text = deviceModule.name;
-    self.tempLabel.text = [deviceModule lastTemperature];
-    self.humidityLabel.text = [deviceModule lastHumidity];
-    self.pressureLabel.text = [deviceModule lastPressure];
-    self.co2Label.text = [deviceModule lastCo2];
+   
+    PSNetAtmoModuleMeasure *measure = [deviceModule lastMeasure];
+    
+//    self.nameLabel.text = deviceModule.name;
+//    CGSize size = [self.nameLabel.text sizeWithAttributes:@{NSFontAttributeName:self.nameLabel.font}];
+//    CGRect frame = self.nameLabel.frame;
+//    frame.size = size;
+//    self.nameLabel.frame = frame;
+    
+    self.tempLabel.text = [measure formattedTemperature];
+    self.humidityLabel.text = [measure formattedHumidity];
+    self.pressureLabel.text = [measure formattedPressure];
+    self.co2Label.text = [measure formattedCo2];
+    self.dateLabel.text = [measure formattedDateTime];
 }
 
 

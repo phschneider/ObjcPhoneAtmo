@@ -10,6 +10,8 @@
 #import "PSAppDelegate.h"
 #import "PSNetAtmoModuleMeasure+Helper.h"
 
+#define MEASURE_DEFAULT_VALUE   @-100
+
 @implementation PSNetAtmoModuleMeasure (Helper)
 
 + (PSNetAtmoModuleMeasure *)finyByModule:(PSNetAtmoModule *)module andDate:(NSDate *)date context:(NSManagedObjectContext *)context
@@ -69,4 +71,76 @@
 }
 
 
+- (NSString *) formattedTemperature
+{
+    DLogFuncName();
+    NSString *value = @"";
+    if (![self.temperature isEqual:MEASURE_DEFAULT_VALUE])
+    {
+        value = [NSString stringWithFormat:@"%.1f°", [[self temperature] floatValue] ];
+    }
+    return value;
+}
+
+
+- (NSString *) formattedHumidity
+{
+    DLogFuncName();
+    
+    NSString *value = @"";
+    if (![self.humidity isEqual:MEASURE_DEFAULT_VALUE])
+    {
+        value = [NSString stringWithFormat:@"%.1f%%", [[self humidity] floatValue]];
+    }
+    return value;
+}
+
+
+- (NSString *) formattedPressure
+{
+    DLogFuncName();
+    NSString *value = @"";
+    if (![self.pressure isEqual:MEASURE_DEFAULT_VALUE])
+    {
+        value = [NSString stringWithFormat:@"%.1fmbar", [[self pressure] floatValue] ];
+    }
+    return value;
+}
+
+
+- (NSString *) formattedCo2
+{
+    DLogFuncName();
+    NSString *value = @"";
+    if (![self.co2 isEqual:MEASURE_DEFAULT_VALUE])
+    {
+        value = [NSString stringWithFormat:@"%.1fppm", [[self co2] floatValue] ];
+    }
+    return value;
+}
+
+
+- (NSString *) formattedNoise
+{
+    DLogFuncName();
+    NSString *value = @"";
+    if (![self.noise isEqual:MEASURE_DEFAULT_VALUE])
+    {
+        value = [NSString stringWithFormat:@"%.1fdb", [[self noise] floatValue] ];
+    }
+    return value;
+}
+
+
+
+
+- (NSString *) formattedDateTime
+{
+    DLogFuncName();
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    return [dateFormatter stringFromDate:self.date];
+}
 @end

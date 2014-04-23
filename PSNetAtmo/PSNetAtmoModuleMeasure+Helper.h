@@ -15,4 +15,11 @@
 
 - (void) updateWithDictionary:(NSDictionary *)dataDict;
 
+- (NSString *) formattedTemperature;
+- (NSString *) formattedHumidity;
+- (NSString *) formattedPressure;
+- (NSString *) formattedCo2;
+- (NSString *) formattedNoise;
+- (NSString *) formattedDateTime;
+
 @end

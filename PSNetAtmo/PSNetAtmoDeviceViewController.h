@@ -8,7 +8,7 @@
 
 #import "PSNetAtmoTableViewController.h"
 
-@interface PSNetAtmoDeviceViewController : PSNetAtmoTableViewController
+@interface PSNetAtmoDeviceViewController : PSNetAtmoTableViewController <NSFetchedResultsControllerDelegate>
 
 - (id) initWithDevice:(PSNetAtmoDevice*)device;
 

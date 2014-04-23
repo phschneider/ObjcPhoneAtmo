@@ -7,6 +7,7 @@
 //
 
 #import "PSNetAtmo.h"
+#import "PSAppDelegate.h"
 #import "PSNetAtmoApi.h"
 #import "PSNetAtmoModule+Helper.h"
 #import "PSNetAtmoDeviceViewController.h"
@@ -15,8 +16,7 @@
 
 @interface PSNetAtmoDeviceViewController ()
 @property (nonatomic) PSNetAtmoDevice *device;
-//@property (nonatomic) UITableView *tableView;
-//@property (nonatomic) UIRefreshControl *myrefreshControl;
+@property (nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation PSNetAtmoDeviceViewController
@@ -58,8 +58,14 @@
 - (void) handleRefresh:(UIControl*)sender
 {
     DLogFuncName();
-    [self.tableView reloadData];
-    [self.tableView scrollsToTop];
+//    [self.tableView reloadData];
+//    [self.tableView scrollsToTop];
+    
+    for (PSNetAtmoModule *module in [self.fetchedResultsController fetchedObjects])
+    {
+        [module requestLastMeasure];
+    }
+    
     [self.refreshControl endRefreshing];
 }
 
@@ -72,12 +78,6 @@
     if (self)
     {
         _device = device;
-//        [self.tableView reloadData];
-//        DLog(@"Bounds = %@", NSStringFromCGRect(self.view.bounds));
-//        DLog(@"Frame = %@", NSStringFromCGRect(self.view.frame));
-//        DLog(@"Bounds = %@", NSStringFromCGRect(self.tableView.bounds));
-//        DLog(@"Frame = %@", NSStringFromCGRect(self.tableView.frame));
-//        self.tableView.rowHeight = ceil(self.view.bounds.size.height/[[self.device modules] count]);
     }
     return self;
 }
@@ -99,7 +99,6 @@
     DLog(@"Bounds = %@", NSStringFromCGRect(self.tableView.bounds));
     DLog(@"Frame = %@", NSStringFromCGRect(self.tableView.frame));
 //    self.tableView.rowHeight = ceil(self.view.bounds.size.height/[[self.device modules] count]);
-//    [self.tableView reloadData];
 }
 
 
@@ -114,8 +113,8 @@
         cell = [[PSNetAtmoModuleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    PSNetAtmoModule *deviceModule = [[[self.device modules] allObjects] objectAtIndex:indexPath.row];
-    [deviceModule requestLastMeasure];
+//    PSNetAtmoModule *deviceModule = [[[self.device modules] allObjects] objectAtIndex:indexPath.row];
+    PSNetAtmoModule *deviceModule = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell setDeviceModule:deviceModule];
     
     return cell;
@@ -126,14 +125,16 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     DLogFuncName();
-    return 1;
+//    return 1;
+    return [[self.fetchedResultsController sections] count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     DLogFuncName();
-    return [[self.device modules] count];
+//    return [[self.device modules] count];
+    return [[self.fetchedResultsController fetchedObjects] count];
 }
 
 
@@ -147,10 +148,75 @@
 
 
 #pragma mark - FetchedResultsController
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+- (NSFetchedResultsController *)fetchedResultsController
 {
-    [self.tableView reloadData];
+    DLogFuncName();
+    //    if (_fetchedResultsController)
+    //    {
+    //        return _fetchedResultsController;
+    //    }
+    
+    NSFetchedResultsController *fetchedResultsController = nil;
+    
+    // using UIManagedDocument for Core Data storage
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NETATMO_ENTITY_MODULE];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"moduleID" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:APPDELEGATE.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    [fetchedResultsController setDelegate:self];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"device == %@", self.device]];
+    
+    _fetchedResultsController = fetchedResultsController;
+    
+    NSError *error = nil;
+    [_fetchedResultsController performFetch:&error];
+    
+    return _fetchedResultsController;
 }
 
+
+//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+//{
+//    DLogFuncName();
+//
+//    [self.tableView reloadData];
+//}
+
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+    DLogFuncName();
+    NSArray *indexPaths = nil;
+    if ([indexPath isEqual:newIndexPath])
+    {
+        indexPaths = @[indexPath];
+    }
+    else
+    {
+        indexPaths = @[indexPath, newIndexPath];
+    }
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            NSLog(@"TODO NSFetchedResultsChangeInsert");
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            NSLog(@"TODO NSFetchedResultsChangeDelete");
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            NSLog(@"TODO NSFetchedResultsChangeMove");
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+        {
+            [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
 @end
