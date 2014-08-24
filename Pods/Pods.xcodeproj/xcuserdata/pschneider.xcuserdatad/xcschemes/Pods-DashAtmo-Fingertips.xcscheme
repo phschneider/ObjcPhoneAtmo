@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "37D1B20AC1A24046A6202E38"
+               BlueprintIdentifier = "4B34D791057A4CFA9900AF89"
                BuildableName = "libPods-DashAtmo-Fingertips.a"
                BlueprintName = "Pods-DashAtmo-Fingertips"
                ReferencedContainer = "container:Pods.xcodeproj">

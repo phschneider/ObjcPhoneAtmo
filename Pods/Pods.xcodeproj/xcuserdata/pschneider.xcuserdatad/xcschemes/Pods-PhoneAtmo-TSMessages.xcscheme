@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB89136CE36549B19F2A56F9"
+               BlueprintIdentifier = "F63003AA3D5A4EB093B4F658"
                BuildableName = "libPods-PhoneAtmo-TSMessages.a"
                BlueprintName = "Pods-PhoneAtmo-TSMessages"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -17,6 +17,8 @@
 + (PSNetAtmoModuleMeasure *)finyByModule:(PSNetAtmoModule *)module andDate:(NSDate *)date context:(NSManagedObjectContext *)context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NETATMO_ENTITY_MODULE_MEASURE inManagedObjectContext:context];
@@ -42,6 +44,8 @@
 + (BOOL) existsInDB:(PSNetAtmoModule *)module date:(NSDate*)date context:(NSManagedObjectContext*) context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     return ([PSNetAtmoModuleMeasure finyByModule:module andDate:date context:(NSManagedObjectContext *)context] != nil);
 }
 
@@ -49,8 +53,9 @@
 - (void) updateWithDictionary:(NSDictionary *)dataDict
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
     
-    for (NSString *keyString in @[ @"noise", @"co2", @"humidity", @"pressure", @"temperature"])
+    for (NSString *keyString in @[ @"noise", @"co2", @"humidity", @"pressure", @"temperature", @"rain"])
     {
         if ([dataDict objectForKey:keyString])
         {
@@ -60,12 +65,12 @@
             }
             else
             {
-                NSLog(@"No value for key %@", keyString);
+                DEBUG_CORE_DATA_Log(@"No value for key %@", keyString);
             }
         }
         else
         {
-            NSLog(@"No value for key %@", keyString);
+            DEBUG_CORE_DATA_Log(@"No value for key %@", keyString);
         }
     }
 }
@@ -74,6 +79,8 @@
 - (NSString *) formattedTemperature
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSString *value = @"";
     if (![self.temperature isEqual:MEASURE_DEFAULT_VALUE])
     {
@@ -86,6 +93,7 @@
 - (NSString *) formattedHumidity
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
     
     NSString *value = @"";
     if (![self.humidity isEqual:MEASURE_DEFAULT_VALUE])
@@ -99,6 +107,8 @@
 - (NSString *) formattedPressure
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSString *value = @"";
     if (![self.pressure isEqual:MEASURE_DEFAULT_VALUE])
     {
@@ -111,6 +121,8 @@
 - (NSString *) formattedCo2
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSString *value = @"";
     if (![self.co2 isEqual:MEASURE_DEFAULT_VALUE])
     {
@@ -123,6 +135,8 @@
 - (NSString *) formattedNoise
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSString *value = @"";
     if (![self.noise isEqual:MEASURE_DEFAULT_VALUE])
     {
@@ -132,15 +146,39 @@
 }
 
 
+- (NSString *) formattedRain
+{
+    DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    NSString *value = @"";
+    if (![self.rain isEqual:MEASURE_DEFAULT_VALUE])
+    {
+        value = [NSString stringWithFormat:@"%.1fmm", [[self rain] floatValue] ];
+    }
+    return value;
+}
 
 
 - (NSString *) formattedDateTime
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     
     return [dateFormatter stringFromDate:self.date];
+}
+
+
+
+#pragma mark - Debug
+- (NSString *) description
+{
+    DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
+    return [NSString stringWithFormat:@"<%p %@>\nModule = %@\nDate =%@\n co2=%@\n temp = %@\n humidity=%@\n pressure = %@\n noise = %@\n rain = %@\n",self, [self class], self.module, self.date, self.formattedCo2, self.formattedTemperature, self.formattedHumidity, self.formattedPressure, self.formattedNoise, self.formattedRain];
 }
 @end

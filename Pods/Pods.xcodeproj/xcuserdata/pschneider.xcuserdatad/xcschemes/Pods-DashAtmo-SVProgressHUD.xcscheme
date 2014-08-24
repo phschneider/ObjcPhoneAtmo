@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24977CCCF5474363B515DF1F"
+               BlueprintIdentifier = "1A3568C539D14340BBC7978B"
                BuildableName = "libPods-DashAtmo-SVProgressHUD.a"
                BlueprintName = "Pods-DashAtmo-SVProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj">

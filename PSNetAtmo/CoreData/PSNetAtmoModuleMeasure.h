@@ -2,7 +2,7 @@
 //  PSNetAtmoModuleMeasure.h
 //  PSNetAtmo
 //
-//  Created by Philip Schneider on 21.04.14.
+//  Created by Philip Schneider on 25.04.14.
 //  Copyright (c) 2014 phschneider.net. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSNumber * noise;
 @property (nonatomic, retain) NSNumber * pressure;
 @property (nonatomic, retain) NSNumber * temperature;
+@property (nonatomic, retain) NSNumber * rain;
 @property (nonatomic, retain) PSNetAtmoModule *module;
 
 @end

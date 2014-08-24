@@ -26,6 +26,8 @@
 - (id) initWithDict:(NSDictionary*)dict
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSEntityDescription *entity = [NSEntityDescription entityForName:NETATMO_ENTITY_DEVICE_PLACE inManagedObjectContext:APPDELEGATE.managedObjectContext];
     self = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
     if (self)
@@ -57,6 +59,8 @@
 + (PSNetAtmoDevicePlace *)findByID:(NSNumber *)articleID context:(NSManagedObjectContext *)context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NETATMO_ENTITY_DEVICE_PLACE inManagedObjectContext:context];
@@ -82,6 +86,8 @@
 + (BOOL) existsInDB:(NSNumber*)articleID context:(NSManagedObjectContext*) context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     return ([PSNetAtmoDevicePlace findByID:articleID context:(NSManagedObjectContext *)context] != nil);
 }
 
@@ -89,6 +95,8 @@
 - (CLLocationCoordinate2D)coordinate
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     CLLocationCoordinate2D coord;
     coord.latitude = [self.latitude doubleValue]; // or self.latitudeValue à la MOGen
     coord.longitude = [self.longitude doubleValue];

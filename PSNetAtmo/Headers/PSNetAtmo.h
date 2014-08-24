@@ -10,19 +10,18 @@
 #define PSNetAtmo_PSNetAtmo_h
 
 
-#define CLIENT_ID       @"528755651b77593b2a8b4573"
-#define CLIENT_SECRET   @"tDraccNdc0XCum5QCFhoFPDugKW8"
+#define CLIENT_ID       @"535ab3011e77596328f2e27b"
+#define CLIENT_SECRET   @"VLEkW9KIu1Npnj30q41UZVBwbSwaba9"
 #define REQUEST_TOKEN   @"http://api.netatmo.net/oauth2/token"
 #define AUTH_URL        @"http://api.netatmo.net/oauth2/authorize"
-#define ACCOUNT_TYPE    @"GeekTool"
-
-#define USER_NAME       @"info@philip-schneider.com"
-#define USER_PASS       @"7qUQVRLdPffg6p"
+#define ACCOUNT_TYPE    @"PhoneAtmo"
 
 #define DEFAULTS_APP_FIRST_START_DATE        @"firstStartDate"
 
 #define DEFAULTS_APP_LAST_VERSION            @"lastVersion"
 #define DEFAULTS_APP_LAST_VERSION_DATE       @"lastVersionDate"
+
+#define HTTP_METHOD @"GET"
 
 #define NETATMO_URL_USER            @"http://api.netatmo.net/api/getuser"
 #define NETATMO_URL_DEVICE_LIST     @"http://api.netatmo.net/api/devicelist"
@@ -32,15 +31,18 @@
 #define NETATMO_ENTITY_DEVICE           @"PSNetAtmoDevice"
 #define NETATMO_ENTITY_PRIVATE_DEVICE   @"PSNetAtmoPrivateDevice"
 #define NETATMO_ENTITY_PUBLIC_DEVICE    @"PSNetAtmoPublicDevice"
+#define NETATMO_ENTITY_USER             @"PSNetAtmoUser"
 #define NETATMO_ENTITY_MODULE           @"PSNetAtmoModule"
 #define NETATMO_ENTITY_MODULE_MEASURE   @"PSNetAtmoModuleMeasure"
 #define NETATMO_ENTITY_MODULE_DATA_TYPE @"PSNetAtmoModuleDataType"
 
 #import <NXOAuth2Client/NXOAuth2.h>
 
+#import "PSNetAtmoNotifications.h"
+
 #import "PSNetAtmoApi.h"
 
-#import "PSNetAtmoAccount.h"
+#import "PSNetAtmoApiAccount.h"
 
 #import "PSNetAtmoUser.h"
 #import "PSNetAtmoUser+Helper.h"

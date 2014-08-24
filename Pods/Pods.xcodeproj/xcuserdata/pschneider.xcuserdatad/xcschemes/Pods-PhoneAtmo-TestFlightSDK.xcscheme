@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7A9832FFFED48418078190E"
+               BlueprintIdentifier = "A457C437760C4AFA94377477"
                BuildableName = "libPods-PhoneAtmo-TestFlightSDK.a"
                BlueprintName = "Pods-PhoneAtmo-TestFlightSDK"
                ReferencedContainer = "container:Pods.xcodeproj">

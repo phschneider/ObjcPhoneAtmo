@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BA9A949F25A24FC1834371B7"
+               BlueprintIdentifier = "0D0E5A7A87034CFAAE3039F6"
                BuildableName = "libPods-DashAtmo-HexColors.a"
                BlueprintName = "Pods-DashAtmo-HexColors"
                ReferencedContainer = "container:Pods.xcodeproj">

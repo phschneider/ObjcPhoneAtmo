@@ -2,7 +2,7 @@
 //  PSNetAtmoModuleMeasure.m
 //  PSNetAtmo
 //
-//  Created by Philip Schneider on 21.04.14.
+//  Created by Philip Schneider on 25.04.14.
 //  Copyright (c) 2014 phschneider.net. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 @dynamic noise;
 @dynamic pressure;
 @dynamic temperature;
+@dynamic rain;
 @dynamic module;
 
 @end

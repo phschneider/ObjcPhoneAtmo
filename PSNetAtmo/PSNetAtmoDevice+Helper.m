@@ -10,12 +10,16 @@
 #import "PSAppDelegate.h"
 #import "PSNetAtmoDevice.h"
 #import "PSNetAtmoDevice+Helper.h"
+#import "PSNetAtmoUser+Helper.h"
+#import "NSDictionary+Validator.h"
 
 @implementation PSNetAtmoDevice (Helper)
 
 + (PSNetAtmoDevice *)findByID:(NSString *)deviceID context:(NSManagedObjectContext *)context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NETATMO_ENTITY_DEVICE inManagedObjectContext:context];
@@ -39,12 +43,15 @@
 }
 
 
+// Data to json
 + (void)updateDevicesWithData:(NSData*)data inContext:(NSManagedObjectContext*)context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSError *localError = nil;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
-    NSLog(@"ParsedObject = %@", dict);
+    DEBUG_CORE_DATA_Log(@"ParsedObject = %@", dict);
     
     if (localError != nil)
     {
@@ -70,7 +77,8 @@
     }
     
     [APPDELEGATE saveContext];
-    
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:PSNETATMO_UPDATED_DEVICES_NOTIFICATION object:nil];
 #warning todo
 //
 
@@ -139,6 +147,8 @@
 + (void)updateDeviceFromJsonDict:(NSDictionary*)deviceDict inContext:(NSManagedObjectContext*)context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     PSNetAtmoDevice * device = [PSNetAtmoDevice findByID:[deviceDict objectForKey:@"_id"] context:context];
     
     if (!device)
@@ -159,28 +169,83 @@
         {
             [device addModulesObject:module];
             module.device = device;
+
+            [PSNetAtmoApi lastMeasureForDevice:device andModule:module];
         }
     }
-    
+
+
+    if ([deviceDict objectForKey:@"user_owner"])
+    {
+        for (NSString * userID in [deviceDict objectForKey:@"user_owner"])
+        {
+            PSNetAtmoUser *owner = [PSNetAtmoUser findByID:userID context:context];
+            if (owner)
+            {
+                [device addOwnersObject:owner];
+                [owner addDevicesObject:device];
+            }
+            else
+            {
+                DEBUG_CORE_DATA_Log(@"NO OWNER FOUND (%@)", userID);
+            }
+        }
+    }
+    else
+    {
+        DEBUG_CORE_DATA_Log(@"WARNINGNO OWNERS OBJECT !!!");
+        PSNetAtmoUser *currentUser = [PSNetAtmoUser currentuser];
+        [device addOwnersObject:currentUser];
+        [currentUser addDevicesObject:device];
+    }
+
+
+    if ([deviceDict objectForKey:@"friend_users"])
+    {
+        for (NSString * friendID in [deviceDict objectForKey:@"friend_users"])
+        {
+            PSNetAtmoUser *friend = [PSNetAtmoUser findByID:friendID context:context];
+            if (friend)
+            {
+                [device addFriendsObject:friend];
+                [friend addFriendDevicesObject:device];
+            }
+            else
+            {
+                DEBUG_CORE_DATA_Log(@"NO FRIEND FOUND (%@)", friendID);
+            }
+        }
+    }
+    else
+    {
+        DEBUG_CORE_DATA_Log(@"WARNINGNO FRIEND USERS OBJECT !!!");
+    }
     
     // Add Module for main device
     NSMutableDictionary *moduleDictFromMainDevice = [[NSMutableDictionary alloc] init];
+    
     [moduleDictFromMainDevice setObject:device.deviceID forKey:@"_id"];
     [moduleDictFromMainDevice setObject:device.deviceID forKey:@"main_device"];
-    [moduleDictFromMainDevice setObject:[deviceDict objectForKey:@"module_name"] forKey:@"module_name"];
-    [moduleDictFromMainDevice setObject:([deviceDict objectForKey:@"battery_vp"]) ? [deviceDict objectForKey:@"battery_vp"] : @0 forKey:@"battery_vp"];
-    [moduleDictFromMainDevice setObject:[deviceDict objectForKey:@"rf_amb_status"] forKey:@"rf_status"];
-    [moduleDictFromMainDevice setObject:[deviceDict objectForKey:@"type"] forKey:@"type"];
-    [moduleDictFromMainDevice setObject:[deviceDict objectForKey:@"data_type"] forKey:@"data_type"];
+    [moduleDictFromMainDevice setObject:[deviceDict validateStringForKey:@"module_name"] forKey:@"module_name"];
+    [moduleDictFromMainDevice setObject:([deviceDict validateStringForKey:@"battery_vp"]) ? [deviceDict validateStringForKey:@"battery_vp"] : @0 forKey:@"battery_vp"];
+    [moduleDictFromMainDevice setObject:[deviceDict validateNumberForKey:@"rf_amb_status"] forKey:@"rf_status"];
+    [moduleDictFromMainDevice setObject:[deviceDict validateStringForKey:@"type"] forKey:@"type"];
+    [moduleDictFromMainDevice setObject:[deviceDict validateStringForKey:@"data_type"] forKey:@"data_type"];
     
     [PSNetAtmoModule updateModuleFromJsonDict:moduleDictFromMainDevice inContext:context];
+    
+    [APPDELEGATE saveContext];
     
     PSNetAtmoModule * module = [PSNetAtmoModule findByID:device.deviceID context:context];
     if (module && ![device.modules containsObject:module])
     {
         [device addModulesObject:module];
         module.device = device;
+
+        [PSNetAtmoApi lastMeasureForDevice:device andModule:module];
     }
+    
+    [APPDELEGATE saveContext];
 }
 
 
@@ -267,12 +332,14 @@
 - (id) initWithData:(NSData*)data error:(NSError **)error
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     self = [super init];
     if (self)
     {
         NSError *localError = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
-        NSLog(@"ParsedObject = %@", dict);
+        DEBUG_CORE_DATA_Log(@"ParsedObject = %@", dict);
         
         if (localError != nil) {
             *error = localError;
@@ -356,9 +423,9 @@
 //            }
 //        }
 
-        NSLog(@"ParsedObject = %@", dict);
-        NSLog(@"TimeExec = %@",[dict objectForKey:@"time_exec"]);
-        NSLog(@"TimeServer = %@ => %@", [dict objectForKey:@"time_server"], [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"time_server"] integerValue]]);
+        DEBUG_CORE_DATA_Log(@"ParsedObject = %@", dict);
+        DEBUG_CORE_DATA_Log(@"TimeExec = %@",[dict objectForKey:@"time_exec"]);
+        DEBUG_CORE_DATA_Log(@"TimeServer = %@ => %@", [dict objectForKey:@"time_server"], [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"time_server"] integerValue]]);
     }
     return self;
 }
@@ -391,12 +458,16 @@
 - (BOOL) isPublic
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     return [self isKindOfClass: [PSNetAtmoPublicDevice class]];
 }
 
 - (BOOL) isPrivate
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     return [self isKindOfClass: [PSNetAtmoPrivateDevice class]];
 }
 

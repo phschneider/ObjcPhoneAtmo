@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EDACFD9217FA45C3AD115F2A"
+               BlueprintIdentifier = "D2B33B398BBF4172925D2552"
                BuildableName = "libPods-PhoneAtmo-HexColors.a"
                BlueprintName = "Pods-PhoneAtmo-HexColors"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -3,6 +3,7 @@ PODS:
   - HexColors (2.2.1)
   - NXOAuth2Client (1.2.5)
   - Reachability (3.1.1)
+  - REMenu (1.8.5)
   - Reveal-iOS-SDK (1.0.3)
   - SVProgressHUD (1.0)
   - TestFlightSDK (3.0.0)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - Fingertips
   - NXOAuth2Client
   - Reachability
+  - REMenu
   - Reveal-iOS-SDK
   - SVProgressHUD
   - TestFlightSDK
@@ -25,6 +27,7 @@ SPEC CHECKSUMS:
   HexColors: 99211502e17904af7891fc8f687d0e4958a6d66e
   NXOAuth2Client: 2ad31d48b28e00663ce4fe21345ccee0cab35e01
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
+  REMenu: 282a6b5feee8cce5403d7f28e15ffbc0aee359ab
   Reveal-iOS-SDK: 8e6a6f22a9520437e4a180fe1d4e99f43b75430e
   SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
   TestFlightSDK: fe0567a897456b6f65b180541892ef0154986e01

@@ -1,0 +1,959 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		220713931985587500F37466 /* NSDictionary+Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 220713911985587500F37466 /* NSDictionary+Validator.m */; };
+		220713971985609500F37466 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220713961985609500F37466 /* Crashlytics.framework */; };
+		22212A7E1914275F0022074B /* PSNetAtmoAccountWithAuthHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 22212A7C1914275F0022074B /* PSNetAtmoAccountWithAuthHandler.m */; };
+		22212A82191427960022074B /* PSNetAtmoAccountWithLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 22212A80191427960022074B /* PSNetAtmoAccountWithLogin.m */; };
+		22212A8619142D9B0022074B /* PSNetAtmoAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 22212A8419142D9B0022074B /* PSNetAtmoAccount.m */; };
+		22212A92191441100022074B /* PSNetAtmoUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 22212A90191441100022074B /* PSNetAtmoUser.m */; };
+		2236B8F1190D01DD00AA8090 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 2236B8E8190D01DD00AA8090 /* Icon-40.png */; };
+		2236B8F2190D01DD00AA8090 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2236B8E9190D01DD00AA8090 /* Icon-40@2x.png */; };
+		2236B8F3190D01DD00AA8090 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2236B8EA190D01DD00AA8090 /* Icon-60@2x.png */; };
+		2236B8F4190D01DD00AA8090 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2236B8EB190D01DD00AA8090 /* Icon-Small.png */; };
+		2236B8F5190D01DD00AA8090 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2236B8EC190D01DD00AA8090 /* Icon-Small@2x.png */; };
+		2236B8F6190D01DD00AA8090 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2236B8ED190D01DD00AA8090 /* Icon.png */; };
+		2236B8F7190D01DD00AA8090 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2236B8EE190D01DD00AA8090 /* Icon@2x.png */; };
+		2236B8F8190D01DD00AA8090 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 2236B8EF190D01DD00AA8090 /* iTunesArtwork */; };
+		2236B8F9190D01DD00AA8090 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 2236B8F0190D01DD00AA8090 /* iTunesArtwork@2x */; };
+		2236B8FD190DA37D00AA8090 /* PSNetAtmoPrivateDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 2236B8FB190DA37D00AA8090 /* PSNetAtmoPrivateDevice.m */; };
+		2236B90D190DA3EC00AA8090 /* PSNetAtmoDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 2236B90B190DA3EC00AA8090 /* PSNetAtmoDevice.m */; };
+		22974C3B190707CE0066A0D9 /* PSNetAtmoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22974C39190707CE0066A0D9 /* PSNetAtmoTableViewController.m */; };
+		22B26EAF19055FD90046F026 /* PSNetAtmoModuleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B26EAD19055FD90046F026 /* PSNetAtmoModuleTableViewCell.m */; };
+		22B26EB7190568370046F026 /* PSNetAtmoDevicePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B26EB5190568370046F026 /* PSNetAtmoDevicePlace.m */; };
+		22B26ECB190568380046F026 /* PSNetAtmoModuleLastDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B26EC9190568380046F026 /* PSNetAtmoModuleLastDataStore.m */; };
+		22B26ED31905737A0046F026 /* PSNetAtmoModuleDataType+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B26ED11905737A0046F026 /* PSNetAtmoModuleDataType+Helper.m */; };
+		22B26ED7190573B00046F026 /* PSNetAtmoModuleDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B26ED5190573B00046F026 /* PSNetAtmoModuleDataType.m */; };
+		22B26EDF190584AE0046F026 /* PSNetAtmoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B26EDD190584AE0046F026 /* PSNetAtmoModule.m */; };
+		22DB584019047BDC00E65ED0 /* PSNetAtmoDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB583E19047BDC00E65ED0 /* PSNetAtmoDeviceViewController.m */; };
+		22E70CBA190BB13800790D28 /* PSNetAtmoProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E70CB8190BB13800790D28 /* PSNetAtmoProfileViewController.m */; };
+		22E72D2B19045EA80015D3B2 /* PSNetAtmoDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266542D1853876100B26377 /* PSNetAtmoDevicesViewController.m */; };
+		22E72D2C19045EA80015D3B2 /* PSNetAtmoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B419AC188ABDE90082C2E7 /* PSNetAtmoNavigationController.m */; };
+		22E72D2F19045EA80015D3B2 /* PSNetAtmoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C5BA01851212100B46499 /* PSNetAtmoWebViewController.m */; };
+		22E72D3019045EA80015D3B2 /* PSNetAtmoDevice+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261DF3B1841201B00E4BB52 /* PSNetAtmoDevice+Helper.m */; };
+		22E72D3219045EA80015D3B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16274AFAB1BA4EE3B7891 /* main.m */; };
+		22E72D3419045EA80015D3B2 /* PSNetAtmoPublicDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC7D66185BAD62008F0020 /* PSNetAtmoPublicDevice.m */; };
+		22E72D3519045EA80015D3B2 /* PSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1636E6F50E87CF01960BD /* PSAppDelegate.m */; };
+		22E72D3819045EA80015D3B2 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F81CBB18932A080034FEC2 /* NSObject+Runtime.m */; };
+		22E72D3919045EA80015D3B2 /* PSNetAtmoModuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261DF6B18415D8900E4BB52 /* PSNetAtmoModuleView.m */; };
+		22E72D3C19045EA80015D3B2 /* PSNetAtmo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 226654371854BD0B00B26377 /* PSNetAtmo.xcdatamodeld */; };
+		22E72D3F19045EA80015D3B2 /* PSNetAtmoApiAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16A8C4DCE2B44CA9210E5 /* PSNetAtmoApiAccount.m */; };
+		22E72D4019045EA80015D3B2 /* PSNetAtmoDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC7DC9185CD6BB008F0020 /* PSNetAtmoDateFormatter.m */; };
+		22E72D4319045EA80015D3B2 /* PSNetAtmoError.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1647E15A8E7F96AEEF541 /* PSNetAtmoError.m */; };
+		22E72D4419045EA80015D3B2 /* PSNetAtmoPublicDevice+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC7D6C185BADED008F0020 /* PSNetAtmoPublicDevice+Helper.m */; };
+		22E72D4519045EA80015D3B2 /* PSNetAtmoModuleMeasure+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261DF511841270800E4BB52 /* PSNetAtmoModuleMeasure+Helper.m */; };
+		22E72D4819045EA80015D3B2 /* PSNetAtmoApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266543B1854BE8000B26377 /* PSNetAtmoApi.m */; };
+		22E72D4919045EA80015D3B2 /* PSNetAtmoDevicePlace+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266542518536FF700B26377 /* PSNetAtmoDevicePlace+Helper.m */; };
+		22E72D4B19045EA80015D3B2 /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F161403F4FA9C277FA54C2 /* UIColor+Random.m */; };
+		22E72D4C19045EA80015D3B2 /* PSNetAtmoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FADCD2185CEB3E00C41C6B /* PSNetAtmoViewController.m */; };
+		22E72D4D19045EA80015D3B2 /* PSNetAtmoUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226654281853873700B26377 /* PSNetAtmoUsersViewController.m */; };
+		22E72D4F19045EA80015D3B2 /* PSNetAtmoModulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F167FBEBF0D15FA8BBEF0C /* PSNetAtmoModulesViewController.m */; };
+		22E72D5019045EA80015D3B2 /* PSNetAtmoUser+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261DF4C1841226100E4BB52 /* PSNetAtmoUser+Helper.m */; };
+		22E72D5119045EA80015D3B2 /* PSNetAtmoPrivateDevice+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC7D69185BADCA008F0020 /* PSNetAtmoPrivateDevice+Helper.m */; };
+		22E72D5219045EA80015D3B2 /* PSNetAtmoModule+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266542218535AD000B26377 /* PSNetAtmoModule+Helper.m */; };
+		22E72D5619045EA80015D3B2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DE81CA18B80B350062F45A /* StoreKit.framework */; };
+		22E72D5719045EA80015D3B2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DE81C818B80B290062F45A /* MessageUI.framework */; };
+		22E72D5819045EA80015D3B2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC7880185A5CFC008F0020 /* MapKit.framework */; };
+		22E72D5919045EA80015D3B2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226654351853AA8C00B26377 /* CoreData.framework */; };
+		22E72D5A19045EA80015D3B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F16F163128E7145F6DFFB8 /* Foundation.framework */; };
+		22E72D5B19045EA80015D3B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F16DF9805DEBF65B31140E /* CoreGraphics.framework */; };
+		22E72D5C19045EA80015D3B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F167A68081E66EF1474BEB /* UIKit.framework */; };
+		22E72D5F19045EA80015D3B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5F1658F18D1D6C418DA9FCB /* InfoPlist.strings */; };
+		22E72D7E1904602D0015D3B2 /* TrackingLocationMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E72D7A1904602D0015D3B2 /* TrackingLocationMask.png */; };
+		22E72D86190464030015D3B2 /* PSNetAtmoNoAccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E72D84190464030015D3B2 /* PSNetAtmoNoAccountView.m */; };
+		22F675E4190AF6FB00D729D5 /* PSNetAtmoModuleMeasure.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F675E2190AF6FB00D729D5 /* PSNetAtmoModuleMeasure.m */; };
+		D6A8F0289E164CC582A1BC44 /* libPods-PhoneAtmo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9331BE82B7D344CCB1E5AE81 /* libPods-PhoneAtmo.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E5F1600FADAC331D794905B9 /* PSNetAtmoPortraitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16F6D5D0F4AEAF62F1A56 /* PSNetAtmoPortraitViewController.m */; };
+		E5F16845212D92F9B3A24710 /* PSNetAtmoProfilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F161AA0F7CE06C1430FE41 /* PSNetAtmoProfilesViewController.m */; };
+		E5F169A418FEB7004FD78AFA /* PSNetAtmoNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16465AF5129F55230FFBB /* PSNetAtmoNotification.m */; };
+		E5F16B8B1B610B1094E7E68F /* PSNetAtmoAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16F264B1F93A8361C12C7 /* PSNetAtmoAnalytics.m */; };
+		E5F16E5974E44FAF4F78D670 /* PSNetAtmoSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16E7562D9F64A2A805CAF /* PSNetAtmoSettingsViewController.m */; };
+		E5F16ECD6F3ADB8CF6EFA9C1 /* PSNetAtmoActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1682F546D9CF9429F912C /* PSNetAtmoActivity.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		220713901985587500F37466 /* NSDictionary+Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Validator.h"; sourceTree = "<group>"; };
+		220713911985587500F37466 /* NSDictionary+Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Validator.m"; sourceTree = "<group>"; };
+		220713961985609500F37466 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		2217A4E41891CEF5005973E5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		22212A7A1914232B0022074B /* Debugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debugging.h; sourceTree = "<group>"; };
+		22212A7B1914275F0022074B /* PSNetAtmoAccountWithAuthHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoAccountWithAuthHandler.h; sourceTree = "<group>"; };
+		22212A7C1914275F0022074B /* PSNetAtmoAccountWithAuthHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoAccountWithAuthHandler.m; sourceTree = "<group>"; };
+		22212A7F191427960022074B /* PSNetAtmoAccountWithLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoAccountWithLogin.h; sourceTree = "<group>"; };
+		22212A80191427960022074B /* PSNetAtmoAccountWithLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoAccountWithLogin.m; sourceTree = "<group>"; };
+		22212A8319142D9B0022074B /* PSNetAtmoAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoAccount.h; path = CoreData/PSNetAtmoAccount.h; sourceTree = "<group>"; };
+		22212A8419142D9B0022074B /* PSNetAtmoAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoAccount.m; path = CoreData/PSNetAtmoAccount.m; sourceTree = "<group>"; };
+		22212A8F191441100022074B /* PSNetAtmoUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoUser.h; path = CoreData/PSNetAtmoUser.h; sourceTree = "<group>"; };
+		22212A90191441100022074B /* PSNetAtmoUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoUser.m; path = CoreData/PSNetAtmoUser.m; sourceTree = "<group>"; };
+		2236B8E8190D01DD00AA8090 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
+		2236B8E9190D01DD00AA8090 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		2236B8EA190D01DD00AA8090 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		2236B8EB190D01DD00AA8090 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		2236B8EC190D01DD00AA8090 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		2236B8ED190D01DD00AA8090 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		2236B8EE190D01DD00AA8090 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		2236B8EF190D01DD00AA8090 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		2236B8F0190D01DD00AA8090 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		2236B8FA190DA37D00AA8090 /* PSNetAtmoPrivateDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoPrivateDevice.h; path = CoreData/PSNetAtmoPrivateDevice.h; sourceTree = "<group>"; };
+		2236B8FB190DA37D00AA8090 /* PSNetAtmoPrivateDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoPrivateDevice.m; path = CoreData/PSNetAtmoPrivateDevice.m; sourceTree = "<group>"; };
+		2236B90A190DA3EC00AA8090 /* PSNetAtmoDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoDevice.h; path = CoreData/PSNetAtmoDevice.h; sourceTree = "<group>"; };
+		2236B90B190DA3EC00AA8090 /* PSNetAtmoDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoDevice.m; path = CoreData/PSNetAtmoDevice.m; sourceTree = "<group>"; };
+		223AFA40185E64F200B888A1 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics_debug.a; path = "Pods/GoogleAnalytics-iOS-SDK/GoogleAnalytics-iOS-SDK/Library/libGoogleAnalytics_debug.a"; sourceTree = "<group>"; };
+		223AFA41185E64F200B888A1 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = "Pods/GoogleAnalytics-iOS-SDK/GoogleAnalytics-iOS-SDK/Library/libGoogleAnalytics.a"; sourceTree = "<group>"; };
+		2261DF3A1841201B00E4BB52 /* PSNetAtmoDevice+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSNetAtmoDevice+Helper.h"; sourceTree = "<group>"; };
+		2261DF3B1841201B00E4BB52 /* PSNetAtmoDevice+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PSNetAtmoDevice+Helper.m"; sourceTree = "<group>"; };
+		2261DF4B1841226100E4BB52 /* PSNetAtmoUser+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSNetAtmoUser+Helper.h"; sourceTree = "<group>"; };
+		2261DF4C1841226100E4BB52 /* PSNetAtmoUser+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PSNetAtmoUser+Helper.m"; sourceTree = "<group>"; };
+		2261DF501841270800E4BB52 /* PSNetAtmoModuleMeasure+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSNetAtmoModuleMeasure+Helper.h"; sourceTree = "<group>"; };
+		2261DF511841270800E4BB52 /* PSNetAtmoModuleMeasure+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PSNetAtmoModuleMeasure+Helper.m"; sourceTree = "<group>"; };
+		2261DF6A18415D8900E4BB52 /* PSNetAtmoModuleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoModuleView.h; sourceTree = "<group>"; };
+		2261DF6B18415D8900E4BB52 /* PSNetAtmoModuleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoModuleView.m; sourceTree = "<group>"; };
+		2266542118535AD000B26377 /* PSNetAtmoModule+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSNetAtmoModule+Helper.h"; sourceTree = "<group>"; };
+		2266542218535AD000B26377 /* PSNetAtmoModule+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PSNetAtmoModule+Helper.m"; sourceTree = "<group>"; };
+		2266542418536FF700B26377 /* PSNetAtmoDevicePlace+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSNetAtmoDevicePlace+Helper.h"; sourceTree = "<group>"; };
+		2266542518536FF700B26377 /* PSNetAtmoDevicePlace+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PSNetAtmoDevicePlace+Helper.m"; sourceTree = "<group>"; };
+		226654271853873700B26377 /* PSNetAtmoUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoUsersViewController.h; sourceTree = "<group>"; };
+		226654281853873700B26377 /* PSNetAtmoUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoUsersViewController.m; sourceTree = "<group>"; };
+		2266542C1853876100B26377 /* PSNetAtmoDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoDevicesViewController.h; sourceTree = "<group>"; };
+		2266542D1853876100B26377 /* PSNetAtmoDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoDevicesViewController.m; sourceTree = "<group>"; };
+		226654351853AA8C00B26377 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		226654381854BD0B00B26377 /* PSNetAtmo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PSNetAtmo.xcdatamodel; sourceTree = "<group>"; };
+		2266543A1854BE8000B26377 /* PSNetAtmoApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoApi.h; sourceTree = "<group>"; };
+		2266543B1854BE8000B26377 /* PSNetAtmoApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoApi.m; sourceTree = "<group>"; };
+		22974C38190707CE0066A0D9 /* PSNetAtmoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoTableViewController.h; sourceTree = "<group>"; };
+		22974C39190707CE0066A0D9 /* PSNetAtmoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoTableViewController.m; sourceTree = "<group>"; };
+		229BB7821879D61B00770924 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		229C5B9F1851212100B46499 /* PSNetAtmoWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoWebViewController.h; sourceTree = "<group>"; };
+		229C5BA01851212100B46499 /* PSNetAtmoWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoWebViewController.m; sourceTree = "<group>"; };
+		22B26EAC19055FD90046F026 /* PSNetAtmoModuleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoModuleTableViewCell.h; sourceTree = "<group>"; };
+		22B26EAD19055FD90046F026 /* PSNetAtmoModuleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoModuleTableViewCell.m; sourceTree = "<group>"; };
+		22B26EB4190568370046F026 /* PSNetAtmoDevicePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoDevicePlace.h; path = CoreData/PSNetAtmoDevicePlace.h; sourceTree = "<group>"; };
+		22B26EB5190568370046F026 /* PSNetAtmoDevicePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoDevicePlace.m; path = CoreData/PSNetAtmoDevicePlace.m; sourceTree = "<group>"; };
+		22B26EC8190568380046F026 /* PSNetAtmoModuleLastDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoModuleLastDataStore.h; path = CoreData/PSNetAtmoModuleLastDataStore.h; sourceTree = "<group>"; };
+		22B26EC9190568380046F026 /* PSNetAtmoModuleLastDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoModuleLastDataStore.m; path = CoreData/PSNetAtmoModuleLastDataStore.m; sourceTree = "<group>"; };
+		22B26ED01905737A0046F026 /* PSNetAtmoModuleDataType+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSNetAtmoModuleDataType+Helper.h"; sourceTree = "<group>"; };
+		22B26ED11905737A0046F026 /* PSNetAtmoModuleDataType+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PSNetAtmoModuleDataType+Helper.m"; sourceTree = "<group>"; };
+		22B26ED4190573B00046F026 /* PSNetAtmoModuleDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoModuleDataType.h; path = CoreData/PSNetAtmoModuleDataType.h; sourceTree = "<group>"; };
+		22B26ED5190573B00046F026 /* PSNetAtmoModuleDataType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoModuleDataType.m; path = CoreData/PSNetAtmoModuleDataType.m; sourceTree = "<group>"; };
+		22B26EDC190584AE0046F026 /* PSNetAtmoModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoModule.h; path = CoreData/PSNetAtmoModule.h; sourceTree = "<group>"; };
+		22B26EDD190584AE0046F026 /* PSNetAtmoModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoModule.m; path = CoreData/PSNetAtmoModule.m; sourceTree = "<group>"; };
+		22B419A8188AB5C20082C2E7 /* PSNetAtmoAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoAppearance.h; sourceTree = "<group>"; };
+		22B419A9188AB5C20082C2E7 /* PSNetAtmoAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoAppearance.m; sourceTree = "<group>"; };
+		22B419AB188ABDE90082C2E7 /* PSNetAtmoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoNavigationController.h; sourceTree = "<group>"; };
+		22B419AC188ABDE90082C2E7 /* PSNetAtmoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoNavigationController.m; sourceTree = "<group>"; };
+		22BC7880185A5CFC008F0020 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		22BC7D65185BAD62008F0020 /* PSNetAtmoPublicDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoPublicDevice.h; path = CoreData/PSNetAtmoPublicDevice.h; sourceTree = "<group>"; };
+		22BC7D66185BAD62008F0020 /* PSNetAtmoPublicDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoPublicDevice.m; path = CoreData/PSNetAtmoPublicDevice.m; sourceTree = "<group>"; };
+		22BC7D68185BADCA008F0020 /* PSNetAtmoPrivateDevice+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSNetAtmoPrivateDevice+Helper.h"; sourceTree = "<group>"; };
+		22BC7D69185BADCA008F0020 /* PSNetAtmoPrivateDevice+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PSNetAtmoPrivateDevice+Helper.m"; sourceTree = "<group>"; };
+		22BC7D6B185BADED008F0020 /* PSNetAtmoPublicDevice+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSNetAtmoPublicDevice+Helper.h"; sourceTree = "<group>"; };
+		22BC7D6C185BADED008F0020 /* PSNetAtmoPublicDevice+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PSNetAtmoPublicDevice+Helper.m"; sourceTree = "<group>"; };
+		22BC7DBF185CAD4D008F0020 /* PSNetAtmoPublicDevicePlaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoPublicDevicePlaceView.h; sourceTree = "<group>"; };
+		22BC7DC0185CAD4D008F0020 /* PSNetAtmoPublicDevicePlaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoPublicDevicePlaceView.m; sourceTree = "<group>"; };
+		22BC7DC8185CD6BB008F0020 /* PSNetAtmoDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoDateFormatter.h; sourceTree = "<group>"; };
+		22BC7DC9185CD6BB008F0020 /* PSNetAtmoDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoDateFormatter.m; sourceTree = "<group>"; };
+		22DB583D19047BDC00E65ED0 /* PSNetAtmoDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoDeviceViewController.h; sourceTree = "<group>"; };
+		22DB583E19047BDC00E65ED0 /* PSNetAtmoDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoDeviceViewController.m; sourceTree = "<group>"; };
+		22DE81C818B80B290062F45A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		22DE81CA18B80B350062F45A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		22E550C51872D6980069AE79 /* NSMutableURLRequest+CurlDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+CurlDescription.h"; sourceTree = "<group>"; };
+		22E550C61872D6980069AE79 /* NSMutableURLRequest+CurlDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+CurlDescription.m"; sourceTree = "<group>"; };
+		22E70CB7190BB13800790D28 /* PSNetAtmoProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoProfileViewController.h; sourceTree = "<group>"; };
+		22E70CB8190BB13800790D28 /* PSNetAtmoProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoProfileViewController.m; sourceTree = "<group>"; };
+		22E72D6619045EA80015D3B2 /* PhoneAtmo-Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PhoneAtmo-Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22E72D7A1904602D0015D3B2 /* TrackingLocationMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackingLocationMask.png; sourceTree = "<group>"; };
+		22E72D7B1904602D0015D3B2 /* PhoneAtmo-AppStore-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhoneAtmo-AppStore-Info.plist"; sourceTree = "<group>"; };
+		22E72D7C1904602D0015D3B2 /* PhoneAtmo-Beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhoneAtmo-Beta-Info.plist"; sourceTree = "<group>"; };
+		22E72D7D1904602D0015D3B2 /* PhoneAtmo-Debug-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhoneAtmo-Debug-Info.plist"; sourceTree = "<group>"; };
+		22E72D83190464030015D3B2 /* PSNetAtmoNoAccountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoNoAccountView.h; sourceTree = "<group>"; };
+		22E72D84190464030015D3B2 /* PSNetAtmoNoAccountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoNoAccountView.m; sourceTree = "<group>"; };
+		22F088B61883080E00380717 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		22F088B81883083D00380717 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		22F675E1190AF6FB00D729D5 /* PSNetAtmoModuleMeasure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoModuleMeasure.h; path = CoreData/PSNetAtmoModuleMeasure.h; sourceTree = "<group>"; };
+		22F675E2190AF6FB00D729D5 /* PSNetAtmoModuleMeasure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoModuleMeasure.m; path = CoreData/PSNetAtmoModuleMeasure.m; sourceTree = "<group>"; };
+		22F81CBA18932A080034FEC2 /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
+		22F81CBB18932A080034FEC2 /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
+		22F81CBE1893E8310034FEC2 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		22FADCD1185CEB3E00C41C6B /* PSNetAtmoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoViewController.h; sourceTree = "<group>"; };
+		22FADCD2185CEB3E00C41C6B /* PSNetAtmoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoViewController.m; sourceTree = "<group>"; };
+		7C982F87DB214900A3CE3C08 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9331BE82B7D344CCB1E5AE81 /* libPods-PhoneAtmo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhoneAtmo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2A5DF753B424614A6B4FBF5 /* Pods-PhoneAtmo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneAtmo.xcconfig"; path = "Pods/Pods-PhoneAtmo.xcconfig"; sourceTree = "<group>"; };
+		E5F161403F4FA9C277FA54C2 /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
+		E5F1615EE916F8B780900E80 /* PSNetAtmoModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoModalViewController.h; sourceTree = "<group>"; };
+		E5F161AA0F7CE06C1430FE41 /* PSNetAtmoProfilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoProfilesViewController.m; sourceTree = "<group>"; };
+		E5F16274AFAB1BA4EE3B7891 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E5F162CBD257B260159261F3 /* PSNetAtmoAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoAnalytics.h; sourceTree = "<group>"; };
+		E5F162EE23DBA8F3042BAE75 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E5F1636E6F50E87CF01960BD /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
+		E5F163AAC0EB36334E60B80D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E5F163AC726027426699E8C4 /* PSNetAtmoPortraitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoPortraitViewController.h; sourceTree = "<group>"; };
+		E5F163BAFDEECA31EEC70423 /* PSNetAtmoModulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoModulesViewController.h; sourceTree = "<group>"; };
+		E5F16465AF5129F55230FFBB /* PSNetAtmoNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoNotification.m; sourceTree = "<group>"; };
+		E5F1647E15A8E7F96AEEF541 /* PSNetAtmoError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoError.m; sourceTree = "<group>"; };
+		E5F1651C5AC4CEFCCDA10ECA /* PSNetAtmoActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoActivity.h; sourceTree = "<group>"; };
+		E5F1657F478587434E8B5F52 /* PSNetAtmoNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoNotification.h; sourceTree = "<group>"; };
+		E5F165E8CF527937D733AF43 /* PSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppDelegate.h; sourceTree = "<group>"; };
+		E5F166E041123E610412F22E /* PSNetAtmo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmo.h; sourceTree = "<group>"; };
+		E5F167A68081E66EF1474BEB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E5F167EDA47F04D99187DCDB /* PSNetAtmoNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoNotifications.h; sourceTree = "<group>"; };
+		E5F167FBEBF0D15FA8BBEF0C /* PSNetAtmoModulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoModulesViewController.m; sourceTree = "<group>"; };
+		E5F1682F546D9CF9429F912C /* PSNetAtmoActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoActivity.m; sourceTree = "<group>"; };
+		E5F1696A7CBC4EBDF50FBC45 /* PSNetAtmoSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoSettingsViewController.h; sourceTree = "<group>"; };
+		E5F16A8B551CF349355E7DFB /* PSNetAtmoProfilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoProfilesViewController.h; sourceTree = "<group>"; };
+		E5F16A8C4DCE2B44CA9210E5 /* PSNetAtmoApiAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoApiAccount.m; sourceTree = "<group>"; };
+		E5F16AB7C97771DE2B3D014E /* PSNetAtmoError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoError.h; sourceTree = "<group>"; };
+		E5F16B934E4F34E8543DCF2E /* PSNetAtmoModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoModalViewController.m; sourceTree = "<group>"; };
+		E5F16C2F296CAFD63FB0E5A8 /* PhoneAtmo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhoneAtmo-Prefix.pch"; sourceTree = "<group>"; };
+		E5F16C3906286C6BCE6098BF /* PSNetAtmoApiAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoApiAccount.h; sourceTree = "<group>"; };
+		E5F16DF9805DEBF65B31140E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E5F16E7562D9F64A2A805CAF /* PSNetAtmoSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoSettingsViewController.m; sourceTree = "<group>"; };
+		E5F16EC9D7FBB9B5D09C577E /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
+		E5F16F163128E7145F6DFFB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E5F16F264B1F93A8361C12C7 /* PSNetAtmoAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoAnalytics.m; sourceTree = "<group>"; };
+		E5F16F6D5D0F4AEAF62F1A56 /* PSNetAtmoPortraitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoPortraitViewController.m; sourceTree = "<group>"; };
+		F6FEBEBB2E674AB58EF98E5A /* libPods-DashAtmo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DashAtmo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22E72D5519045EA80015D3B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22E72D5619045EA80015D3B2 /* StoreKit.framework in Frameworks */,
+				220713971985609500F37466 /* Crashlytics.framework in Frameworks */,
+				22E72D5719045EA80015D3B2 /* MessageUI.framework in Frameworks */,
+				22E72D5819045EA80015D3B2 /* MapKit.framework in Frameworks */,
+				22E72D5919045EA80015D3B2 /* CoreData.framework in Frameworks */,
+				22E72D5A19045EA80015D3B2 /* Foundation.framework in Frameworks */,
+				22E72D5B19045EA80015D3B2 /* CoreGraphics.framework in Frameworks */,
+				22E72D5C19045EA80015D3B2 /* UIKit.framework in Frameworks */,
+				D6A8F0289E164CC582A1BC44 /* libPods-PhoneAtmo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2261DF4F184126ED00E4BB52 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E5F16AB7C97771DE2B3D014E /* PSNetAtmoError.h */,
+				E5F1647E15A8E7F96AEEF541 /* PSNetAtmoError.m */,
+				2266543A1854BE8000B26377 /* PSNetAtmoApi.h */,
+				2266543B1854BE8000B26377 /* PSNetAtmoApi.m */,
+				E5F16C3906286C6BCE6098BF /* PSNetAtmoApiAccount.h */,
+				E5F16A8C4DCE2B44CA9210E5 /* PSNetAtmoApiAccount.m */,
+				22212A7F191427960022074B /* PSNetAtmoAccountWithLogin.h */,
+				22212A80191427960022074B /* PSNetAtmoAccountWithLogin.m */,
+				22212A7B1914275F0022074B /* PSNetAtmoAccountWithAuthHandler.h */,
+				22212A7C1914275F0022074B /* PSNetAtmoAccountWithAuthHandler.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		2266542A1853873F00B26377 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				22FADCD1185CEB3E00C41C6B /* PSNetAtmoViewController.h */,
+				22FADCD2185CEB3E00C41C6B /* PSNetAtmoViewController.m */,
+				229C5B9F1851212100B46499 /* PSNetAtmoWebViewController.h */,
+				229C5BA01851212100B46499 /* PSNetAtmoWebViewController.m */,
+				226654271853873700B26377 /* PSNetAtmoUsersViewController.h */,
+				226654281853873700B26377 /* PSNetAtmoUsersViewController.m */,
+				2266542C1853876100B26377 /* PSNetAtmoDevicesViewController.h */,
+				2266542D1853876100B26377 /* PSNetAtmoDevicesViewController.m */,
+				22DB583D19047BDC00E65ED0 /* PSNetAtmoDeviceViewController.h */,
+				22DB583E19047BDC00E65ED0 /* PSNetAtmoDeviceViewController.m */,
+				E5F163BAFDEECA31EEC70423 /* PSNetAtmoModulesViewController.h */,
+				E5F167FBEBF0D15FA8BBEF0C /* PSNetAtmoModulesViewController.m */,
+				22B419A8188AB5C20082C2E7 /* PSNetAtmoAppearance.h */,
+				22B419A9188AB5C20082C2E7 /* PSNetAtmoAppearance.m */,
+				22B419AB188ABDE90082C2E7 /* PSNetAtmoNavigationController.h */,
+				22B419AC188ABDE90082C2E7 /* PSNetAtmoNavigationController.m */,
+				E5F16B934E4F34E8543DCF2E /* PSNetAtmoModalViewController.m */,
+				E5F1615EE916F8B780900E80 /* PSNetAtmoModalViewController.h */,
+				22974C38190707CE0066A0D9 /* PSNetAtmoTableViewController.h */,
+				22974C39190707CE0066A0D9 /* PSNetAtmoTableViewController.m */,
+				22E70CB7190BB13800790D28 /* PSNetAtmoProfileViewController.h */,
+				22E70CB8190BB13800790D28 /* PSNetAtmoProfileViewController.m */,
+				E5F16F6D5D0F4AEAF62F1A56 /* PSNetAtmoPortraitViewController.m */,
+				E5F163AC726027426699E8C4 /* PSNetAtmoPortraitViewController.h */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2266542B1853875000B26377 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22E72D83190464030015D3B2 /* PSNetAtmoNoAccountView.h */,
+				22E72D84190464030015D3B2 /* PSNetAtmoNoAccountView.m */,
+				2261DF6A18415D8900E4BB52 /* PSNetAtmoModuleView.h */,
+				2261DF6B18415D8900E4BB52 /* PSNetAtmoModuleView.m */,
+				22BC7DBF185CAD4D008F0020 /* PSNetAtmoPublicDevicePlaceView.h */,
+				22BC7DC0185CAD4D008F0020 /* PSNetAtmoPublicDevicePlaceView.m */,
+				22B26EAC19055FD90046F026 /* PSNetAtmoModuleTableViewCell.h */,
+				22B26EAD19055FD90046F026 /* PSNetAtmoModuleTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2266543D1854C04100B26377 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2261DF4B1841226100E4BB52 /* PSNetAtmoUser+Helper.h */,
+				2261DF4C1841226100E4BB52 /* PSNetAtmoUser+Helper.m */,
+				2261DF501841270800E4BB52 /* PSNetAtmoModuleMeasure+Helper.h */,
+				2261DF511841270800E4BB52 /* PSNetAtmoModuleMeasure+Helper.m */,
+				2266542418536FF700B26377 /* PSNetAtmoDevicePlace+Helper.h */,
+				2266542518536FF700B26377 /* PSNetAtmoDevicePlace+Helper.m */,
+				22BC7D65185BAD62008F0020 /* PSNetAtmoPublicDevice.h */,
+				22BC7D66185BAD62008F0020 /* PSNetAtmoPublicDevice.m */,
+				22BC7D6B185BADED008F0020 /* PSNetAtmoPublicDevice+Helper.h */,
+				22BC7D6C185BADED008F0020 /* PSNetAtmoPublicDevice+Helper.m */,
+				22BC7D68185BADCA008F0020 /* PSNetAtmoPrivateDevice+Helper.h */,
+				22BC7D69185BADCA008F0020 /* PSNetAtmoPrivateDevice+Helper.m */,
+				2261DF3A1841201B00E4BB52 /* PSNetAtmoDevice+Helper.h */,
+				2261DF3B1841201B00E4BB52 /* PSNetAtmoDevice+Helper.m */,
+				2266542118535AD000B26377 /* PSNetAtmoModule+Helper.h */,
+				2266542218535AD000B26377 /* PSNetAtmoModule+Helper.m */,
+				22B26EB4190568370046F026 /* PSNetAtmoDevicePlace.h */,
+				22B26EB5190568370046F026 /* PSNetAtmoDevicePlace.m */,
+				22B26EC8190568380046F026 /* PSNetAtmoModuleLastDataStore.h */,
+				22B26EC9190568380046F026 /* PSNetAtmoModuleLastDataStore.m */,
+				22B26ED01905737A0046F026 /* PSNetAtmoModuleDataType+Helper.h */,
+				22B26ED11905737A0046F026 /* PSNetAtmoModuleDataType+Helper.m */,
+				22B26ED4190573B00046F026 /* PSNetAtmoModuleDataType.h */,
+				22B26ED5190573B00046F026 /* PSNetAtmoModuleDataType.m */,
+				22B26EDC190584AE0046F026 /* PSNetAtmoModule.h */,
+				22B26EDD190584AE0046F026 /* PSNetAtmoModule.m */,
+				22F675E1190AF6FB00D729D5 /* PSNetAtmoModuleMeasure.h */,
+				22F675E2190AF6FB00D729D5 /* PSNetAtmoModuleMeasure.m */,
+				2236B8FA190DA37D00AA8090 /* PSNetAtmoPrivateDevice.h */,
+				2236B8FB190DA37D00AA8090 /* PSNetAtmoPrivateDevice.m */,
+				2236B90A190DA3EC00AA8090 /* PSNetAtmoDevice.h */,
+				2236B90B190DA3EC00AA8090 /* PSNetAtmoDevice.m */,
+				22212A8319142D9B0022074B /* PSNetAtmoAccount.h */,
+				22212A8419142D9B0022074B /* PSNetAtmoAccount.m */,
+				22212A8F191441100022074B /* PSNetAtmoUser.h */,
+				22212A90191441100022074B /* PSNetAtmoUser.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		22BC7D8A185C731B008F0020 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22E72D751904602D0015D3B2 /* PhoneAtmo */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		22E72D751904602D0015D3B2 /* PhoneAtmo */ = {
+			isa = PBXGroup;
+			children = (
+				22E72D761904602D0015D3B2 /* AppStore */,
+				22E72D771904602D0015D3B2 /* Beta */,
+				22E72D781904602D0015D3B2 /* Debug */,
+				22E72D791904602D0015D3B2 /* Images */,
+				22E72D7B1904602D0015D3B2 /* PhoneAtmo-AppStore-Info.plist */,
+				22E72D7C1904602D0015D3B2 /* PhoneAtmo-Beta-Info.plist */,
+				22E72D7D1904602D0015D3B2 /* PhoneAtmo-Debug-Info.plist */,
+			);
+			path = PhoneAtmo;
+			sourceTree = "<group>";
+		};
+		22E72D761904602D0015D3B2 /* AppStore */ = {
+			isa = PBXGroup;
+			children = (
+				2236B8E8190D01DD00AA8090 /* Icon-40.png */,
+				2236B8E9190D01DD00AA8090 /* Icon-40@2x.png */,
+				2236B8EA190D01DD00AA8090 /* Icon-60@2x.png */,
+				2236B8EB190D01DD00AA8090 /* Icon-Small.png */,
+				2236B8EC190D01DD00AA8090 /* Icon-Small@2x.png */,
+				2236B8ED190D01DD00AA8090 /* Icon.png */,
+				2236B8EE190D01DD00AA8090 /* Icon@2x.png */,
+				2236B8EF190D01DD00AA8090 /* iTunesArtwork */,
+				2236B8F0190D01DD00AA8090 /* iTunesArtwork@2x */,
+			);
+			path = AppStore;
+			sourceTree = "<group>";
+		};
+		22E72D771904602D0015D3B2 /* Beta */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Beta;
+			sourceTree = "<group>";
+		};
+		22E72D781904602D0015D3B2 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		22E72D791904602D0015D3B2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				22E72D7A1904602D0015D3B2 /* TrackingLocationMask.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		E5F160E32EE00E7AE3F60410 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				E5F166E041123E610412F22E /* PSNetAtmo.h */,
+				E5F167EDA47F04D99187DCDB /* PSNetAtmoNotifications.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		E5F1616E2EEB936AF81FA0C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5F1658F18D1D6C418DA9FCB /* InfoPlist.strings */,
+				E5F16274AFAB1BA4EE3B7891 /* main.m */,
+				E5F16C2F296CAFD63FB0E5A8 /* PhoneAtmo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5F165CAD8B256445B38E816 = {
+			isa = PBXGroup;
+			children = (
+				2217A4E41891CEF5005973E5 /* Settings.bundle */,
+				223AFA40185E64F200B888A1 /* libGoogleAnalytics_debug.a */,
+				223AFA41185E64F200B888A1 /* libGoogleAnalytics.a */,
+				E5F16756E89FB97242FCA476 /* Products */,
+				E5F16BBB6D55E5B6C22B4DB0 /* Frameworks */,
+				E5F16F322F8D396BBEC2B0BE /* PSNetAtmo */,
+				A2A5DF753B424614A6B4FBF5 /* Pods-PhoneAtmo.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		E5F16756E89FB97242FCA476 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22E72D6619045EA80015D3B2 /* PhoneAtmo-Debug.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5F1685320DE9188ABEC8FC2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E5F16EC9D7FBB9B5D09C577E /* UIColor+Random.h */,
+				E5F161403F4FA9C277FA54C2 /* UIColor+Random.m */,
+				22E550C51872D6980069AE79 /* NSMutableURLRequest+CurlDescription.h */,
+				22E550C61872D6980069AE79 /* NSMutableURLRequest+CurlDescription.m */,
+				22F81CBA18932A080034FEC2 /* NSObject+Runtime.h */,
+				22F81CBB18932A080034FEC2 /* NSObject+Runtime.m */,
+				220713901985587500F37466 /* NSDictionary+Validator.h */,
+				220713911985587500F37466 /* NSDictionary+Validator.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		E5F16BBB6D55E5B6C22B4DB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				220713961985609500F37466 /* Crashlytics.framework */,
+				22DE81CA18B80B350062F45A /* StoreKit.framework */,
+				22DE81C818B80B290062F45A /* MessageUI.framework */,
+				22F81CBE1893E8310034FEC2 /* AdSupport.framework */,
+				22F088B81883083D00380717 /* Social.framework */,
+				22F088B61883080E00380717 /* Accounts.framework */,
+				229BB7821879D61B00770924 /* Crashlytics.framework */,
+				22BC7880185A5CFC008F0020 /* MapKit.framework */,
+				226654351853AA8C00B26377 /* CoreData.framework */,
+				E5F16F163128E7145F6DFFB8 /* Foundation.framework */,
+				E5F16DF9805DEBF65B31140E /* CoreGraphics.framework */,
+				E5F167A68081E66EF1474BEB /* UIKit.framework */,
+				E5F162EE23DBA8F3042BAE75 /* XCTest.framework */,
+				7C982F87DB214900A3CE3C08 /* libPods.a */,
+				F6FEBEBB2E674AB58EF98E5A /* libPods-DashAtmo.a */,
+				9331BE82B7D344CCB1E5AE81 /* libPods-PhoneAtmo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5F16F322F8D396BBEC2B0BE /* PSNetAtmo */ = {
+			isa = PBXGroup;
+			children = (
+				22BC7D8A185C731B008F0020 /* Resources */,
+				2266543D1854C04100B26377 /* CoreData */,
+				2261DF4F184126ED00E4BB52 /* API */,
+				E5F1616E2EEB936AF81FA0C3 /* Supporting Files */,
+				E5F165E8CF527937D733AF43 /* PSAppDelegate.h */,
+				E5F1636E6F50E87CF01960BD /* PSAppDelegate.m */,
+				226654371854BD0B00B26377 /* PSNetAtmo.xcdatamodeld */,
+				22BC7DC8185CD6BB008F0020 /* PSNetAtmoDateFormatter.h */,
+				22BC7DC9185CD6BB008F0020 /* PSNetAtmoDateFormatter.m */,
+				E5F1685320DE9188ABEC8FC2 /* Categories */,
+				E5F160E32EE00E7AE3F60410 /* Headers */,
+				2266542B1853875000B26377 /* Views */,
+				2266542A1853873F00B26377 /* ViewControllers */,
+				E5F1682F546D9CF9429F912C /* PSNetAtmoActivity.m */,
+				E5F1651C5AC4CEFCCDA10ECA /* PSNetAtmoActivity.h */,
+				E5F16E7562D9F64A2A805CAF /* PSNetAtmoSettingsViewController.m */,
+				E5F1696A7CBC4EBDF50FBC45 /* PSNetAtmoSettingsViewController.h */,
+				E5F16F264B1F93A8361C12C7 /* PSNetAtmoAnalytics.m */,
+				E5F162CBD257B260159261F3 /* PSNetAtmoAnalytics.h */,
+				E5F16465AF5129F55230FFBB /* PSNetAtmoNotification.m */,
+				E5F1657F478587434E8B5F52 /* PSNetAtmoNotification.h */,
+				22212A7A1914232B0022074B /* Debugging.h */,
+				E5F161AA0F7CE06C1430FE41 /* PSNetAtmoProfilesViewController.m */,
+				E5F16A8B551CF349355E7DFB /* PSNetAtmoProfilesViewController.h */,
+			);
+			path = PSNetAtmo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22E72D2819045EA80015D3B2 /* PhoneAtmo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22E72D6219045EA80015D3B2 /* Build configuration list for PBXNativeTarget "PhoneAtmo" */;
+			buildPhases = (
+				22E72D2919045EA80015D3B2 /* Check Pods Manifest.lock */,
+				22E72D2A19045EA80015D3B2 /* Sources */,
+				22E72D5519045EA80015D3B2 /* Frameworks */,
+				22E72D5E19045EA80015D3B2 /* Resources */,
+				22E72D6119045EA80015D3B2 /* Copy Pods Resources */,
+				220713951985606900F37466 /* Crashlytics */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhoneAtmo;
+			productName = PSNetAtmo;
+			productReference = 22E72D6619045EA80015D3B2 /* PhoneAtmo-Debug.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5F161BE8F575441588B6509 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = phschneider.net;
+			};
+			buildConfigurationList = E5F1617458F8721BD7600355 /* Build configuration list for PBXProject "PhoneAtmo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E5F165CAD8B256445B38E816;
+			productRefGroup = E5F16756E89FB97242FCA476 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22E72D2819045EA80015D3B2 /* PhoneAtmo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22E72D5E19045EA80015D3B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2236B8F9190D01DD00AA8090 /* iTunesArtwork@2x in Resources */,
+				2236B8F6190D01DD00AA8090 /* Icon.png in Resources */,
+				2236B8F7190D01DD00AA8090 /* Icon@2x.png in Resources */,
+				22E72D5F19045EA80015D3B2 /* InfoPlist.strings in Resources */,
+				2236B8F1190D01DD00AA8090 /* Icon-40.png in Resources */,
+				2236B8F3190D01DD00AA8090 /* Icon-60@2x.png in Resources */,
+				2236B8F2190D01DD00AA8090 /* Icon-40@2x.png in Resources */,
+				2236B8F8190D01DD00AA8090 /* iTunesArtwork in Resources */,
+				22E72D7E1904602D0015D3B2 /* TrackingLocationMask.png in Resources */,
+				2236B8F4190D01DD00AA8090 /* Icon-Small.png in Resources */,
+				2236B8F5190D01DD00AA8090 /* Icon-Small@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		220713951985606900F37466 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "./Crashlytics.framework/run c13fd4d9aee54009fd4750058c84e02db744864d c7563ea40e182f91eb64c3a6232f046eba831eefe3e04be35dd44ee6ee82f0c1";
+			shellScript = "";
+		};
+		22E72D2919045EA80015D3B2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		22E72D6119045EA80015D3B2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-PhoneAtmo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22E72D2A19045EA80015D3B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22E72D2B19045EA80015D3B2 /* PSNetAtmoDevicesViewController.m in Sources */,
+				22E72D2C19045EA80015D3B2 /* PSNetAtmoNavigationController.m in Sources */,
+				22DB584019047BDC00E65ED0 /* PSNetAtmoDeviceViewController.m in Sources */,
+				22212A82191427960022074B /* PSNetAtmoAccountWithLogin.m in Sources */,
+				22E72D2F19045EA80015D3B2 /* PSNetAtmoWebViewController.m in Sources */,
+				22E72D3019045EA80015D3B2 /* PSNetAtmoDevice+Helper.m in Sources */,
+				22E72D3219045EA80015D3B2 /* main.m in Sources */,
+				22E72D3419045EA80015D3B2 /* PSNetAtmoPublicDevice.m in Sources */,
+				22B26ECB190568380046F026 /* PSNetAtmoModuleLastDataStore.m in Sources */,
+				22974C3B190707CE0066A0D9 /* PSNetAtmoTableViewController.m in Sources */,
+				22E72D3519045EA80015D3B2 /* PSAppDelegate.m in Sources */,
+				220713931985587500F37466 /* NSDictionary+Validator.m in Sources */,
+				22E72D3819045EA80015D3B2 /* NSObject+Runtime.m in Sources */,
+				22212A92191441100022074B /* PSNetAtmoUser.m in Sources */,
+				22E72D3919045EA80015D3B2 /* PSNetAtmoModuleView.m in Sources */,
+				22B26ED7190573B00046F026 /* PSNetAtmoModuleDataType.m in Sources */,
+				22F675E4190AF6FB00D729D5 /* PSNetAtmoModuleMeasure.m in Sources */,
+				22B26EAF19055FD90046F026 /* PSNetAtmoModuleTableViewCell.m in Sources */,
+				22E72D3C19045EA80015D3B2 /* PSNetAtmo.xcdatamodeld in Sources */,
+				22212A7E1914275F0022074B /* PSNetAtmoAccountWithAuthHandler.m in Sources */,
+				22E72D3F19045EA80015D3B2 /* PSNetAtmoApiAccount.m in Sources */,
+				22E72D4019045EA80015D3B2 /* PSNetAtmoDateFormatter.m in Sources */,
+				22B26EB7190568370046F026 /* PSNetAtmoDevicePlace.m in Sources */,
+				22E72D4319045EA80015D3B2 /* PSNetAtmoError.m in Sources */,
+				22E72D4419045EA80015D3B2 /* PSNetAtmoPublicDevice+Helper.m in Sources */,
+				22E72D4519045EA80015D3B2 /* PSNetAtmoModuleMeasure+Helper.m in Sources */,
+				22E72D4819045EA80015D3B2 /* PSNetAtmoApi.m in Sources */,
+				2236B8FD190DA37D00AA8090 /* PSNetAtmoPrivateDevice.m in Sources */,
+				22E72D4919045EA80015D3B2 /* PSNetAtmoDevicePlace+Helper.m in Sources */,
+				22E72D4B19045EA80015D3B2 /* UIColor+Random.m in Sources */,
+				22E72D4C19045EA80015D3B2 /* PSNetAtmoViewController.m in Sources */,
+				22E72D4D19045EA80015D3B2 /* PSNetAtmoUsersViewController.m in Sources */,
+				22E70CBA190BB13800790D28 /* PSNetAtmoProfileViewController.m in Sources */,
+				22B26EDF190584AE0046F026 /* PSNetAtmoModule.m in Sources */,
+				22E72D4F19045EA80015D3B2 /* PSNetAtmoModulesViewController.m in Sources */,
+				22B26ED31905737A0046F026 /* PSNetAtmoModuleDataType+Helper.m in Sources */,
+				22212A8619142D9B0022074B /* PSNetAtmoAccount.m in Sources */,
+				22E72D5019045EA80015D3B2 /* PSNetAtmoUser+Helper.m in Sources */,
+				22E72D5119045EA80015D3B2 /* PSNetAtmoPrivateDevice+Helper.m in Sources */,
+				22E72D86190464030015D3B2 /* PSNetAtmoNoAccountView.m in Sources */,
+				22E72D5219045EA80015D3B2 /* PSNetAtmoModule+Helper.m in Sources */,
+				E5F1600FADAC331D794905B9 /* PSNetAtmoPortraitViewController.m in Sources */,
+				E5F16ECD6F3ADB8CF6EFA9C1 /* PSNetAtmoActivity.m in Sources */,
+				2236B90D190DA3EC00AA8090 /* PSNetAtmoDevice.m in Sources */,
+				E5F16E5974E44FAF4F78D670 /* PSNetAtmoSettingsViewController.m in Sources */,
+				E5F16B8B1B610B1094E7E68F /* PSNetAtmoAnalytics.m in Sources */,
+				E5F169A418FEB7004FD78AFA /* PSNetAtmoNotification.m in Sources */,
+				E5F16845212D92F9B3A24710 /* PSNetAtmoProfilesViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E5F1658F18D1D6C418DA9FCB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5F163AAC0EB36334E60B80D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		221B3FD4185E400A00071CA7 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "PSNetAtmo/Resources/${TARGETNAME}/${TARGETNAME}-${CONFIGURATION}-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Beta;
+		};
+		22E72D6319045EA80015D3B2 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2A5DF753B424614A6B4FBF5 /* Pods-PhoneAtmo.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pschneider/Dev/Xcode/Projects/PS/PhoneAtmo/PhoneAtmo,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PSNetAtmo/PhoneAtmo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					TARGET_PHONEATMO,
+					"CONFIGURATION_$(CONFIGURATION)",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "${inherited}";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"${inherited}",
+					"/Users/pschneider/Documents/Workspace/Xcode/Projects/PS/PSNetAtmo/Pods/GoogleAnalytics-iOS-SDK/GoogleAnalytics-iOS-SDK/Library",
+				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "3BBC520B-1883-4CD4-BC95-6F648A196680";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = AppStore;
+		};
+		22E72D6419045EA80015D3B2 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2A5DF753B424614A6B4FBF5 /* Pods-PhoneAtmo.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pschneider/Dev/Xcode/Projects/PS/PhoneAtmo/PhoneAtmo,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PSNetAtmo/PhoneAtmo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					TARGET_PHONEATMO,
+					"$(inherited)",
+					"CONFIGURATION_$(CONFIGURATION)",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "${inherited}";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"${inherited}",
+					"/Users/pschneider/Documents/Workspace/Xcode/Projects/PS/PSNetAtmo/Pods/GoogleAnalytics-iOS-SDK/GoogleAnalytics-iOS-SDK/Library",
+				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "${TARGET_NAME}-${CONFIGURATION}";
+				PROVISIONING_PROFILE = "3BBC520B-1883-4CD4-BC95-6F648A196680";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Beta;
+		};
+		22E72D6519045EA80015D3B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2A5DF753B424614A6B4FBF5 /* Pods-PhoneAtmo.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pschneider/Dev/Xcode/Projects/PS/PhoneAtmo/PhoneAtmo,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PSNetAtmo/PhoneAtmo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					TARGET_PHONEATMO,
+					_DEBUG_REQUEST_REPONSE,
+					"CONFIGURATION_$(CONFIGURATION)",
+					DEBUG_ACCOUNT,
+					DEBUG_DEVICES,
+					_DEBUG_ACTIVITY,
+					DEBUG_API,
+					DEBUG_APPCYCLE,
+					DEBUG_CORE_DATA,
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "${inherited}";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"${inherited}",
+					"/Users/pschneider/Documents/Workspace/Xcode/Projects/PS/PSNetAtmo/Pods/GoogleAnalytics-iOS-SDK/GoogleAnalytics-iOS-SDK/Library",
+				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "${TARGET_NAME}-${CONFIGURATION}";
+				PROVISIONING_PROFILE = "3BBC520B-1883-4CD4-BC95-6F648A196680";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E5F16C33436B96332E1D5C0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "PSNetAtmo/Resources/${TARGETNAME}/${TARGETNAME}-${CONFIGURATION}-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5F16F5B394AEF7953A515DD /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "PSNetAtmo/Resources/${TARGETNAME}/${TARGETNAME}-${CONFIGURATION}-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AppStore;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22E72D6219045EA80015D3B2 /* Build configuration list for PBXNativeTarget "PhoneAtmo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22E72D6319045EA80015D3B2 /* AppStore */,
+				22E72D6419045EA80015D3B2 /* Beta */,
+				22E72D6519045EA80015D3B2 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = AppStore;
+		};
+		E5F1617458F8721BD7600355 /* Build configuration list for PBXProject "PhoneAtmo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5F16F5B394AEF7953A515DD /* AppStore */,
+				221B3FD4185E400A00071CA7 /* Beta */,
+				E5F16C33436B96332E1D5C0D /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = AppStore;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		226654371854BD0B00B26377 /* PSNetAtmo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				226654381854BD0B00B26377 /* PSNetAtmo.xcdatamodel */,
+			);
+			currentVersion = 226654381854BD0B00B26377 /* PSNetAtmo.xcdatamodel */;
+			path = PSNetAtmo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E5F161BE8F575441588B6509 /* Project object */;
+}

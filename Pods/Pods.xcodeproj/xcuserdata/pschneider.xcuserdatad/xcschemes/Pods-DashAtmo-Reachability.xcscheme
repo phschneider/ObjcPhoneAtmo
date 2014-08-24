@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9AC543A954C94A4CB0ECBF18"
+               BlueprintIdentifier = "C203F4452A7A401BBFAF25F8"
                BuildableName = "libPods-DashAtmo-Reachability.a"
                BlueprintName = "Pods-DashAtmo-Reachability"
                ReferencedContainer = "container:Pods.xcodeproj">

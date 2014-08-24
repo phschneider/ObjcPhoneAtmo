@@ -20,6 +20,7 @@
 - (NSString *) formattedPressure;
 - (NSString *) formattedCo2;
 - (NSString *) formattedNoise;
+- (NSString *) formattedRain;
 - (NSString *) formattedDateTime;
 
 @end

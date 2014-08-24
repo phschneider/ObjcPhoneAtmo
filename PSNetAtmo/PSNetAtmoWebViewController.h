@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PSNetAtmoViewController.h"
 
+// Wird geöffnet wenn der Auth-Vorgang stattfindet
 @interface PSNetAtmoWebViewController : PSNetAtmoViewController <UIWebViewDelegate>
 
 - (id)initWithUrl:(NSURL*)url;

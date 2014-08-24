@@ -11,6 +11,10 @@
 #define APPDELEGATE ((PSAppDelegate*)[[UIApplication sharedApplication] delegate])
 @class MBFingerTipWindow;
 
+@class PSNetAtmoDevicesViewController;
+@class PSNetAtmoProfilesViewController;
+@class PSNetAtmoSettingsViewController;
+
 @interface PSAppDelegate : UIResponder <UIApplicationDelegate>
 
 #ifndef CONFIGURATION_AppStore
@@ -24,9 +28,13 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (nonatomic) PSNetAtmoDevicesViewController *devicesViewController;
+@property (nonatomic) PSNetAtmoProfilesViewController *profilesViewController;
+@property (nonatomic) PSNetAtmoSettingsViewController *settingsViewController;
+
 + (NSManagedObjectContext *)managedObjectContext;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-@end
+@end                                                           

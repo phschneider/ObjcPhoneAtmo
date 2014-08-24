@@ -22,6 +22,18 @@
 
 - (void) updateMeasuresWithData:(NSData *)data;
 
+- (BOOL)deviceTypeBaseStation;
+
+- (BOOL)deviceTypeIsOutdoorModule;
+
+- (BOOL)deviceTypeIsIndoorModule;
+
+- (BOOL)deviceTypeIsRainGauge;
+
+- (BOOL)deviceTypeIsThermostatPlug;
+
+- (BOOL)deviceTypeIsThermostatModule;
+
 - (PSNetAtmoModuleMeasure*) lastMeasure;
 - (NSString*) lastTemperature;
 - (NSString*) lastHumidity;

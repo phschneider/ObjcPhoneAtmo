@@ -87,7 +87,7 @@
 {
     DLogFuncName();
     [super viewDidAppear:animated];
-    [self.tableView setContentInset:UIEdgeInsetsMake(64,0,64,0)];
+    [self.tableView setContentInset:UIEdgeInsetsMake(64,0,0,0)];
     //
     //    CGRect frame = self.tableView.frame;
     //    frame.size.height = 504;
@@ -145,6 +145,7 @@
     PSNetAtmoModulesViewController * modulesViewController = [[PSNetAtmoModulesViewController alloc] initWithDevice:self.device];
     [self.parentViewController.navigationController pushViewController:modulesViewController animated:YES];
 }
+
 
 
 #pragma mark - FetchedResultsController

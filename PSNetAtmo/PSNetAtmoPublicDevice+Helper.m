@@ -16,6 +16,8 @@
 +(PSNetAtmoPublicDevice*) createOrUpdatePublicDeviceWithDict:(NSDictionary*)dict inContext:(NSManagedObjectContext*)context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
 //    PSNetAtmoPublicDevice * device = [[PSNetAtmoLocalStorage sharedInstance] publicDeviceWithID:[dict objectForKey:@"_id"]];
 //    BOOL addDevice = NO;
 //    if (!device)
@@ -81,6 +83,8 @@
 + (NSArray*) allPublicDevicesInContext:(NSManagedObjectContext *)context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:NETATMO_ENTITY_PUBLIC_DEVICE inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
@@ -100,6 +104,8 @@
 - (CLLocationCoordinate2D)coordinate
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     CLLocationCoordinate2D coord;
     coord.latitude = [self.place.latitude doubleValue]; // or self.latitudeValue à la MOGen
     coord.longitude = [self.place.longitude doubleValue];

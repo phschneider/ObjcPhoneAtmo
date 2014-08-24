@@ -15,6 +15,8 @@
 + (PSNetAtmoModuleDataType *)finyByName:(NSString *)name context:(NSManagedObjectContext *)context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NETATMO_ENTITY_MODULE_DATA_TYPE inManagedObjectContext:context];
@@ -40,7 +42,18 @@
 + (BOOL) existsInDB:(NSString*)name context:(NSManagedObjectContext*) context
 {
     DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
     return ([PSNetAtmoModuleDataType finyByName:name context:(NSManagedObjectContext *)context] != nil);
+}
+
+
+- (NSString *)description
+{
+    DLogFuncName();
+    DEBUG_CORE_DATA_LogName();
+    
+    return [NSString stringWithFormat:@"< %p %@> %@",self, self.class, self.name];
 }
 
 @end

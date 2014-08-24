@@ -20,6 +20,7 @@
 //+ (PSNetAtmoMeasureDB *) measureForDevice:(NSString*)deviceID;
 //+ (PSNetAtmoMeasureDB *) measureForDevice:(NSString*)deviceID andModule:(NSString*)module;
 
++ (void) user;
 + (void) devices;
 + (void) measureForDevice:(NSString*)deviceID;
 + (void) measureForDevice:(PSNetAtmoDevice*)device andModule:(PSNetAtmoModule*)module;

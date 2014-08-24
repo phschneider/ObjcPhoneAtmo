@@ -7,6 +7,7 @@
 //
 
 #import "PSNetAtmoViewController.h"
+#import "PSNetAtmoNavigationController.h"
 
 @interface PSNetAtmoViewController ()
 
@@ -14,6 +15,16 @@
 
 @implementation PSNetAtmoViewController
 
+- (id) init
+{
+    DLogFuncName();
+    self = [super init];
+    if (self)
+    {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
+    }
+    return self;
+}
 
 #pragma mark - ModalViews
 // Bugfix da FormSheet ModalView keine Keyboard dimissen kann
@@ -39,6 +50,14 @@
 }
 
 
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    PSNetAtmoNavigationController *navigationController = (PSNetAtmoNavigationController *)self.navigationController;
+    [navigationController.menu setNeedsLayout];
+}
+
+
 #pragma mark - Rotation
 -(BOOL)shouldAutorotate
 {
@@ -50,7 +69,7 @@
 -(NSUInteger)supportedInterfaceOrientations
 {
     DLogFuncName();
-    return UIInterfaceOrientationMaskLandscape;
+    return UIInterfaceOrientationMaskAll;
 }
 
 

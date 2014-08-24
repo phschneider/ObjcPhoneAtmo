@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F60EA2C01BFD45E5AFDB08F6"
+               BlueprintIdentifier = "D0B2252303BD4591A22ACC32"
                BuildableName = "libPods-DashAtmo-NXOAuth2Client.a"
                BlueprintName = "Pods-DashAtmo-NXOAuth2Client"
                ReferencedContainer = "container:Pods.xcodeproj">

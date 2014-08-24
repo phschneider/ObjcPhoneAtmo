@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="PSNetAtmoAccount" representedClassName="PSNetAtmoAccount" syncable="YES">
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="PSNetAtmoDevice" representedClassName="PSNetAtmoDevice" syncable="YES">
         <attribute name="accessCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="co2Calibrating" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -8,7 +12,9 @@
         <attribute name="mark" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stationName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wifiStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSNetAtmoUser" inverseName="friendDevices" inverseEntity="PSNetAtmoUser" syncable="YES"/>
         <relationship name="modules" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSNetAtmoModule" inverseName="device" inverseEntity="PSNetAtmoModule" syncable="YES"/>
+        <relationship name="owners" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSNetAtmoUser" inverseName="devices" inverseEntity="PSNetAtmoUser" syncable="YES"/>
         <relationship name="place" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="PSNetAtmoDevicePlace" inverseName="device" inverseEntity="PSNetAtmoDevicePlace" syncable="YES"/>
     </entity>
     <entity name="PSNetAtmoDevicePlace" representedClassName="PSNetAtmoDevicePlace" syncable="YES">
@@ -63,6 +69,7 @@
         <attribute name="humidity" optional="YES" attributeType="Double" defaultValueString="-100" syncable="YES"/>
         <attribute name="noise" optional="YES" attributeType="Double" defaultValueString="-100" syncable="YES"/>
         <attribute name="pressure" optional="YES" attributeType="Double" defaultValueString="-100" syncable="YES"/>
+        <attribute name="rain" optional="YES" attributeType="Double" defaultValueString="-100" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Double" defaultValueString="-100" syncable="YES"/>
         <relationship name="module" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="PSNetAtmoModule" inverseName="measures" inverseEntity="PSNetAtmoModule" syncable="YES"/>
     </entity>
@@ -73,24 +80,24 @@
         <attribute name="publicExtData" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="setupDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="streamingKey" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSNetAtmoUser" inverseName="devices" inverseEntity="PSNetAtmoUser" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSNetAtmoUser" inverseName="friendDevices" inverseEntity="PSNetAtmoUser" syncable="YES"/>
     </entity>
     <entity name="PSNetAtmoUser" representedClassName="PSNetAtmoUser" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="feelLikeAlgo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="feelLikeAlgo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isCurrentUser" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="lang" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locale" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="oAuthAccountData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="pressureUnit" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="timelineNotRead" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="unit" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="windUnit" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="devices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSNetAtmoPrivateDevice" inverseName="owner" inverseEntity="PSNetAtmoPrivateDevice" syncable="YES"/>
-        <relationship name="friendDevices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSNetAtmoPrivateDevice" inverseName="user" inverseEntity="PSNetAtmoPrivateDevice" syncable="YES"/>
+        <relationship name="devices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSNetAtmoDevice" inverseName="owners" inverseEntity="PSNetAtmoDevice" syncable="YES"/>
+        <relationship name="friendDevices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSNetAtmoDevice" inverseName="friends" inverseEntity="PSNetAtmoDevice" syncable="YES"/>
     </entity>
     <elements>
         <element name="PSNetAtmoDevice" positionX="0" positionY="0" width="0" height="0"/>
@@ -101,5 +108,6 @@
         <element name="PSNetAtmoModuleMeasure" positionX="0" positionY="0" width="0" height="0"/>
         <element name="PSNetAtmoPrivateDevice" positionX="0" positionY="0" width="0" height="0"/>
         <element name="PSNetAtmoUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PSNetAtmoAccount" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
