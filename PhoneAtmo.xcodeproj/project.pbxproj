@@ -807,7 +807,7 @@
 					/Users/pschneider/Dev/Xcode/Projects/PS/PhoneAtmo/PhoneAtmo,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PSNetAtmo/PhoneAtmo-Prefix.pch";
+				GCC_PREFIX_HEADER = "PhoneAtmo/PhoneAtmo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					TARGET_PHONEATMO,
@@ -816,10 +816,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "${inherited}";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"${inherited}",
-					"/Users/pschneider/Documents/Workspace/Xcode/Projects/PS/PSNetAtmo/Pods/GoogleAnalytics-iOS-SDK/GoogleAnalytics-iOS-SDK/Library",
-				);
+				LIBRARY_SEARCH_PATHS = "${inherited}";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "A2F3E79F-D1C1-477E-A43F-EB80F1244F61";
@@ -841,7 +838,7 @@
 					/Users/pschneider/Dev/Xcode/Projects/PS/PhoneAtmo/PhoneAtmo,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PSNetAtmo/PhoneAtmo-Prefix.pch";
+				GCC_PREFIX_HEADER = "PhoneAtmo/PhoneAtmo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					TARGET_PHONEATMO,
 					"$(inherited)",
@@ -850,10 +847,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "${inherited}";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"${inherited}",
-					"/Users/pschneider/Documents/Workspace/Xcode/Projects/PS/PSNetAtmo/Pods/GoogleAnalytics-iOS-SDK/GoogleAnalytics-iOS-SDK/Library",
-				);
+				LIBRARY_SEARCH_PATHS = "${inherited}";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "${TARGET_NAME}-${CONFIGURATION}";
 				PROVISIONING_PROFILE = "A2F3E79F-D1C1-477E-A43F-EB80F1244F61";
@@ -875,7 +869,7 @@
 					/Users/pschneider/Dev/Xcode/Projects/PS/PhoneAtmo/PhoneAtmo,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PSNetAtmo/PhoneAtmo-Prefix.pch";
+				GCC_PREFIX_HEADER = "PhoneAtmo/PhoneAtmo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					TARGET_PHONEATMO,
@@ -891,10 +885,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "${inherited}";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"${inherited}",
-					"/Users/pschneider/Documents/Workspace/Xcode/Projects/PS/PSNetAtmo/Pods/GoogleAnalytics-iOS-SDK/GoogleAnalytics-iOS-SDK/Library",
-				);
+				LIBRARY_SEARCH_PATHS = "${inherited}";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "${TARGET_NAME}-${CONFIGURATION}";
 				PROVISIONING_PROFILE = "A2F3E79F-D1C1-477E-A43F-EB80F1244F61";
