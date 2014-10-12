@@ -98,8 +98,8 @@
 		2236B8EC190D01DD00AA8090 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		2236B8ED190D01DD00AA8090 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		2236B8EE190D01DD00AA8090 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		2236B8EF190D01DD00AA8090 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		2236B8F0190D01DD00AA8090 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		2236B8EF190D01DD00AA8090 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; path = iTunesArtwork; sourceTree = "<group>"; };
+		2236B8F0190D01DD00AA8090 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = text; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		2236B8FA190DA37D00AA8090 /* PSNetAtmoPrivateDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoPrivateDevice.h; path = CoreData/PSNetAtmoPrivateDevice.h; sourceTree = "<group>"; };
 		2236B8FB190DA37D00AA8090 /* PSNetAtmoPrivateDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSNetAtmoPrivateDevice.m; path = CoreData/PSNetAtmoPrivateDevice.m; sourceTree = "<group>"; };
 		2236B90A190DA3EC00AA8090 /* PSNetAtmoDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSNetAtmoDevice.h; path = CoreData/PSNetAtmoDevice.h; sourceTree = "<group>"; };
@@ -168,9 +168,9 @@
 		22E70CB8190BB13800790D28 /* PSNetAtmoProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoProfileViewController.m; sourceTree = "<group>"; };
 		22E72D6619045EA80015D3B2 /* PhoneAtmo-Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PhoneAtmo-Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E72D7A1904602D0015D3B2 /* TrackingLocationMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackingLocationMask.png; sourceTree = "<group>"; };
-		22E72D7B1904602D0015D3B2 /* PhoneAtmo-AppStore-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhoneAtmo-AppStore-Info.plist"; sourceTree = "<group>"; };
-		22E72D7C1904602D0015D3B2 /* PhoneAtmo-Beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhoneAtmo-Beta-Info.plist"; sourceTree = "<group>"; };
-		22E72D7D1904602D0015D3B2 /* PhoneAtmo-Debug-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhoneAtmo-Debug-Info.plist"; sourceTree = "<group>"; };
+		22E72D7B1904602D0015D3B2 /* PhoneAtmo-AppStore-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "PhoneAtmo-AppStore-Info.plist"; sourceTree = "<group>"; };
+		22E72D7C1904602D0015D3B2 /* PhoneAtmo-Beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "PhoneAtmo-Beta-Info.plist"; sourceTree = "<group>"; };
+		22E72D7D1904602D0015D3B2 /* PhoneAtmo-Debug-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "PhoneAtmo-Debug-Info.plist"; sourceTree = "<group>"; };
 		22E72D83190464030015D3B2 /* PSNetAtmoNoAccountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetAtmoNoAccountView.h; sourceTree = "<group>"; };
 		22E72D84190464030015D3B2 /* PSNetAtmoNoAccountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetAtmoNoAccountView.m; sourceTree = "<group>"; };
 		22F088B61883080E00380717 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -434,7 +434,7 @@
 				223AFA41185E64F200B888A1 /* libGoogleAnalytics.a */,
 				E5F16756E89FB97242FCA476 /* Products */,
 				E5F16BBB6D55E5B6C22B4DB0 /* Frameworks */,
-				E5F16F322F8D396BBEC2B0BE /* PSNetAtmo */,
+				E5F16F322F8D396BBEC2B0BE /* PhoneAtmo */,
 				A2A5DF753B424614A6B4FBF5 /* Pods-PhoneAtmo.xcconfig */,
 			);
 			sourceTree = "<group>";
@@ -485,7 +485,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E5F16F322F8D396BBEC2B0BE /* PSNetAtmo */ = {
+		E5F16F322F8D396BBEC2B0BE /* PhoneAtmo */ = {
 			isa = PBXGroup;
 			children = (
 				22BC7D8A185C731B008F0020 /* Resources */,
@@ -513,7 +513,7 @@
 				E5F161AA0F7CE06C1430FE41 /* PSNetAtmoProfilesViewController.m */,
 				E5F16A8B551CF349355E7DFB /* PSNetAtmoProfilesViewController.h */,
 			);
-			path = PSNetAtmo;
+			path = PhoneAtmo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
