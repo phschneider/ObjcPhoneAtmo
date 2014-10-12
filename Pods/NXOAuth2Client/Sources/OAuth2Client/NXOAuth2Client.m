@@ -18,7 +18,7 @@
 #import "NSURL+NXOAuth2.h"
 
 #import "NXOAuth2Client.h"
-#import "SVProgressHUD.h"
+
 
 NSString * const NXOAuth2ClientConnectionContextTokenRequest = @"tokenRequest";
 NSString * const NXOAuth2ClientConnectionContextTokenRefresh = @"tokenRefresh";
@@ -498,7 +498,7 @@ NSString * const NXOAuth2ClientConnectionContextTokenRefresh = @"tokenRefresh";
 {
     NSString *body = [[NSString alloc] initWithData:connection.data encoding:NSUTF8StringEncoding];
     NSLog(@"oauthConnection Error: %@", body);
-    [SVProgressHUD showErrorWithStatus:body];
+    
     
     if (connection == authConnection) {
         self.authenticating = NO;

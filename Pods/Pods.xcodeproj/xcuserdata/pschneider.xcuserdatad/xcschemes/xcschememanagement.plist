@@ -4,101 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-DashAtmo-Fingertips.xcscheme</key>
+		<key>Pods-PhoneAtmo-CrashlyticsFramework.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>Pods-DashAtmo-HexColors.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>Pods-DashAtmo-NXOAuth2Client.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>Pods-DashAtmo-REMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-DashAtmo-Reachability.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
-		<key>Pods-DashAtmo-Reveal-iOS-SDK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
-		</dict>
-		<key>Pods-DashAtmo-SVProgressHUD.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-		<key>Pods-DashAtmo-TSMessages.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
-		<key>Pods-DashAtmo-TestFlightSDK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
-		</dict>
-		<key>Pods-DashAtmo-UIDevice-Hardware.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
-		</dict>
-		<key>Pods-DashAtmo.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>Pods-PhoneAtmo-Fingertips.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>Pods-PhoneAtmo-HexColors.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>12</integer>
 		</dict>
 		<key>Pods-PhoneAtmo-NXOAuth2Client.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>13</integer>
 		</dict>
 		<key>Pods-PhoneAtmo-REMenu.xcscheme</key>
 		<dict>
@@ -109,160 +33,96 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>14</integer>
 		</dict>
 		<key>Pods-PhoneAtmo-Reveal-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>15</integer>
 		</dict>
 		<key>Pods-PhoneAtmo-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>16</integer>
 		</dict>
 		<key>Pods-PhoneAtmo-TSMessages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>18</integer>
 		</dict>
 		<key>Pods-PhoneAtmo-TestFlightSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>17</integer>
 		</dict>
 		<key>Pods-PhoneAtmo-UIDevice-Hardware.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>19</integer>
 		</dict>
 		<key>Pods-PhoneAtmo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D0E5A7A87034CFAAE3039F6</key>
+		<key>2732D30E6BD54D9894225017</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A3568C539D14340BBC7978B</key>
+		<key>2AAA3F717644450C86AE6148</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1EF702B5D1364D18889E0E89</key>
+		<key>2B34E699667F483597D004E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F6BBA2F87224FF99B906580</key>
+		<key>2DDF86B2B3A7401E8F9D5E85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E24DF738E7E456991F9ABC9</key>
+		<key>45ACAFD3D49D4A17811278B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>306C16218AC4499893B9E604</key>
+		<key>833B771A0FCB47AFB5DD8FFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4B34D791057A4CFA9900AF89</key>
+		<key>8FB08FED6DC84A3096808C91</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6139E21F3938411E8CE92AA7</key>
+		<key>AE851786577B4AD999A0AFEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7EB75138F347406DACBFE26F</key>
+		<key>B3106102DE8B4F38A6756272</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82118E65C95E46BABF116F7C</key>
+		<key>DD43BF881C2B450E94CA2FFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>897657ACEDA644BA9A361351</key>
+		<key>E61B09AA484747E39FC6D4E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D6046D26A604622AFAE55D4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9E71DBE74B4C4C48A1DED2C5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9F86BAA5540C42B7A21939FE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A457C437760C4AFA94377477</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B22B8536F7604297AF19FFA2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C203F4452A7A401BBFAF25F8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D0B2252303BD4591A22ACC32</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D2B33B398BBF4172925D2552</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D6ECCF0FC636474EA90B9800</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EE5F687D89EA49CEB38A2C71</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F63003AA3D5A4EB093B4F658</key>
+		<key>FF60A60DAEEA4AC499C9A01F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

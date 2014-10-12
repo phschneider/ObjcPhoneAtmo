@@ -92,7 +92,7 @@
     DLogFuncName();
     DEBUG_APPCYCLE_LogName();
     
-#ifdef TARGET_PHONEATMO
+#ifdef CONFIGURATION_AppStore
     NSLog(@"PhoneAtmo Build");
     [Crashlytics startWithAPIKey:@"c13fd4d9aee54009fd4750058c84e02db744864d"];
 #endif
