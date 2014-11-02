@@ -8,6 +8,8 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>UILaunchImageName</key>
+	<string>Beta-Default</string>
 	<key>CFBundleIdentifier</key>
 	<string>net.phschneider.phoneatmo.beta</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -26,10 +28,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>DashAtmo</string>
+			<string>PhoneAtmo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>dashatmo</string>
+				<string>phoneatmo</string>
 			</array>
 		</dict>
 	</array>
@@ -44,13 +46,66 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-	</array>
+    <key>CFBundleIconFiles</key>
+    <array>
+        <string>Beta-Icon-40</string>
+        <string>Beta-Icon-60</string>
+        <string>Beta-Icon-Small</string>
+    </array>
+    <key>UILaunchImages</key>
+    <array>
+        <dict>
+            <key>UILaunchImageMinimumOSVersion</key>
+            <string>7.0</string>
+            <key>UILaunchImageName</key>
+            <string>Beta-Default</string>
+            <key>UILaunchImageOrientation</key>
+            <string>Portrait</string>
+            <key>UILaunchImageSize</key>
+            <string>{320, 480}</string>
+        </dict>
+        <dict>
+            <key>UILaunchImageMinimumOSVersion</key>
+            <string>7.0</string>
+            <key>UILaunchImageName</key>
+            <string>Beta-Default-568h</string>
+            <key>UILaunchImageOrientation</key>
+            <string>Portrait</string>
+            <key>UILaunchImageSize</key>
+            <string>{320, 568}</string>
+        </dict>
+        <dict>
+            <key>UILaunchImageMinimumOSVersion</key>
+            <string>7.0</string>
+            <key>UILaunchImageName</key>
+            <string>Beta-Default-568h</string>
+            <key>UILaunchImageOrientation</key>
+            <string>Portrait</string>
+            <key>UILaunchImageSize</key>
+            <string>{320, 568}</string>
+        </dict>
+        <dict>
+            <key>UILaunchImageMinimumOSVersion</key>
+            <string>8.0</string>
+            <key>UILaunchImageName</key>
+            <string>Beta-Default-667h</string>
+            <key>UILaunchImageOrientation</key>
+            <string>Portrait</string>
+            <key>UILaunchImageSize</key>
+            <string>{375, 667}</string>
+        </dict>
+        <dict>
+            <key>UILaunchImageMinimumOSVersion</key>
+            <string>8.0</string>
+            <key>UILaunchImageName</key>
+            <string>Beta-Default-736h</string>
+            <key>UILaunchImageOrientation</key>
+            <string>Portrait</string>
+            <key>UILaunchImageSize</key>
+            <string>{414, 736}</string>
+        </dict>
+    </array>
+
 </dict>
 </plist>
