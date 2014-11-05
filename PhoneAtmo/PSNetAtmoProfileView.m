@@ -10,9 +10,20 @@
 
 @implementation PSNetAtmoProfileView
 
+- (id)initWithFrame:(CGRect)frame
+{
+    DLogFuncName();
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
+}
 
 
 - (void)drawRect:(CGRect)rect {
+    DLogFuncName();
     UIBezierPath* bezier2Path = UIBezierPath.bezierPath;
     [bezier2Path moveToPoint: CGPointMake(131.14, 109.29)];
     [bezier2Path addCurveToPoint: CGPointMake(120.69, 99.13) controlPoint1: CGPointMake(125.21, 106.69) controlPoint2: CGPointMake(121.69, 103.28)];

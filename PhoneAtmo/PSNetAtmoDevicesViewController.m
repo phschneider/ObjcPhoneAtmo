@@ -69,24 +69,29 @@
 
         float width = self.view.bounds.size.width;
         float height = self.view.bounds.size.height;
+        float imgWidth = 200;
+        float imgHeight = 160;
 
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"973-user-selected"] style:UIBarButtonItemStylePlain target:self action:@selector(profileButtonTouched:)];
 
-            
-        self.noAccountView = [[PSNetAtmoProfileView alloc] initWithFrame:CGRectMake(ceil((self.view.bounds.size.width-200)/2),ceil((self.view.bounds.size.height-120)/2),200, 160)];
+        self.noAccountView = [[PSNetAtmoProfileView alloc] initWithFrame:CGRectMake(
+                ceil((width-imgWidth)/2),
+                ceil((height/2)-imgHeight+15),
+                imgWidth,
+                imgHeight)];
         self.noAccountView.alpha = .5;
-        self.noAccountView.backgroundColor = [UIColor orangeColor];
         [self.view addSubview:self.noAccountView];
-        
-        self.noAccountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ceil((height)/2), width, ceil(height/2))];
+
+        float bounds = 40;
+        self.noAccountLabel = [[UILabel alloc] initWithFrame:CGRectMake(bounds, self.noAccountView.frame.origin.y + self.noAccountView.frame.size.height + bounds, width-(2*bounds), 100)];
         self.noAccountLabel.textAlignment = NSTextAlignmentCenter;
         self.noAccountLabel.numberOfLines = 0;
         self.noAccountLabel.alpha = 0.5;
-        self.noAccountLabel.text = @"No account, click here to authorize.";
-        self.noAccountLabel.textColor = [UIColor grayColor];
+        self.noAccountLabel.text = @"You have no account configured.\nTap to login with your netatmo account and authorize the app.";
+        self.noAccountLabel.textColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1];
         self.noAccountLabel.backgroundColor = [UIColor clearColor];
-        self.noAccountLabel.shadowColor = [UIColor darkGrayColor];
-        self.noAccountLabel.shadowOffset = CGSizeMake(-1,-1);
+        self.noAccountLabel.shadowColor = [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1];
+        self.noAccountLabel.shadowOffset = CGSizeMake(1,0);
 
         [self.view addSubview:self.noAccountLabel];
 
