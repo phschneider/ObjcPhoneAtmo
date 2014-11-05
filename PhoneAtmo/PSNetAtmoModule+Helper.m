@@ -77,7 +77,7 @@
 
     module.moduleID = [dict objectForKey:@"_id"];
     module.deviceID = [dict objectForKey:@"main_device"];
-    module.battery = [dict objectForKey:@"battery_vp"];
+    module.battery = ([[dict allKeys] containsObject:@"battery_vp"] && [dict objectForKey:@"battery_vp"] != [NSNull null] && [dict objectForKey:@"battery_vp"] != nil && [dict objectForKey:@"battery_vp"] != @"" ) ? [dict objectForKey:@"battery_vp"] : @0;
     module.firmware = [dict objectForKey:@"firmware"];
 
     for (NSString * dataTypeString in [dict objectForKey:@"data_type"])

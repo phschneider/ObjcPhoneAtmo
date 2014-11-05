@@ -11,7 +11,6 @@
 #import "PSNetAtmoApi.h"
 #import "PSNetAtmoModule+Helper.h"
 #import "PSNetAtmoDeviceViewController.h"
-#import "PSNetAtmoModulesViewController.h"
 #import "PSNetAtmoModuleTableViewCell.h"
 
 @interface PSNetAtmoDeviceViewController ()
@@ -98,11 +97,26 @@
     DLog(@"Frame = %@", NSStringFromCGRect(self.view.frame));
     DLog(@"Bounds = %@", NSStringFromCGRect(self.tableView.bounds));
     DLog(@"Frame = %@", NSStringFromCGRect(self.tableView.frame));
-//    self.tableView.rowHeight = ceil(self.view.bounds.size.height/[[self.device modules] count]);
 }
 
 
 #pragma mark - TableViewDataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    int numberOfDevices = [[self.fetchedResultsController fetchedObjects] count];
+    NSLog(@"number of devices = %d", numberOfDevices);
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    float height = self.view.bounds.size.height - navBar.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height;
+    NSLog(@"Height = %f",height);
+
+    NSLog(@"RowHeight = %f",ceil( height /numberOfDevices));
+    
+#warning todo - minheight
+#warning todo - maxheight
+    
+    return ceil( height /numberOfDevices);
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DLogFuncName();
@@ -141,9 +155,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DLogFuncName();
+
     return;
-    PSNetAtmoModulesViewController * modulesViewController = [[PSNetAtmoModulesViewController alloc] initWithDevice:self.device];
-    [self.parentViewController.navigationController pushViewController:modulesViewController animated:YES];
+
+//    PSNetAtmoModule *deviceModule = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    [self.parentViewController.navigationController pushViewController:modulesViewController animated:YES];
 }
 
 
@@ -166,6 +182,7 @@
     fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:APPDELEGATE.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     [fetchedResultsController setDelegate:self];
     [request setPredicate:[NSPredicate predicateWithFormat:@"device == %@", self.device]];
+
     
     _fetchedResultsController = fetchedResultsController;
     
@@ -188,6 +205,13 @@
 {
     DLogFuncName();
     NSArray *indexPaths = nil;
+    if (!indexPath)
+    {
+        NSLog(@"No indexpath, reloading tableview");
+        [self.tableView reloadData];
+        return;
+    }
+    
     if ([indexPath isEqual:newIndexPath])
     {
         indexPaths = @[indexPath];

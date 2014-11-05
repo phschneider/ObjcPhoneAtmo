@@ -151,15 +151,6 @@
 }
 
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    DLogFuncName();
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-
 - (UILabel*)defaultLabelWithText:(NSString*)text
 {
     DLogFuncName();
@@ -304,11 +295,11 @@
         self.tempLabel.text = [measure formattedRain];
     }
     
-    self.tpgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnLabel)];
-    self.tpgr.numberOfTouchesRequired = 1;
-    self.tpgr.numberOfTapsRequired = 1;
-    self.co2Label.userInteractionEnabled = YES;
-    [self.co2Label addGestureRecognizer:self.tpgr];
+//    self.tpgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnLabel)];
+//    self.tpgr.numberOfTouchesRequired = 1;
+//    self.tpgr.numberOfTapsRequired = 1;
+//    self.co2Label.userInteractionEnabled = YES;
+//    [self.co2Label addGestureRecognizer:self.tpgr];
 }
 
 
@@ -397,5 +388,7 @@
     frame.size = size;
     label.frame = frame;
 }
+
+
 
 @end

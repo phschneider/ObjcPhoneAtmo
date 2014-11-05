@@ -227,7 +227,7 @@
     [moduleDictFromMainDevice setObject:device.deviceID forKey:@"_id"];
     [moduleDictFromMainDevice setObject:device.deviceID forKey:@"main_device"];
     [moduleDictFromMainDevice setObject:[deviceDict validateStringForKey:@"module_name"] forKey:@"module_name"];
-    [moduleDictFromMainDevice setObject:([deviceDict validateStringForKey:@"battery_vp"]) ? [deviceDict validateStringForKey:@"battery_vp"] : @0 forKey:@"battery_vp"];
+    [moduleDictFromMainDevice setObject:([deviceDict validateStringForKey:@"battery_vp"]) ? [deviceDict validateStringForKey:@"battery_vp"] : @1 forKey:@"battery_vp"];
     [moduleDictFromMainDevice setObject:[deviceDict validateNumberForKey:@"rf_amb_status"] forKey:@"rf_status"];
     [moduleDictFromMainDevice setObject:[deviceDict validateStringForKey:@"type"] forKey:@"type"];
     [moduleDictFromMainDevice setObject:[deviceDict validateStringForKey:@"data_type"] forKey:@"data_type"];

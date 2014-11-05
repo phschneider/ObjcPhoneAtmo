@@ -43,6 +43,12 @@ static PSNetAtmoNotification *instance = nil;
     {
         NSLog(@"Notification = %@ \n UserInfo = %@", notification.name, notification.userInfo);
     }
+
+//    if ([PSNETATMO_NOTIFICATIONS containsObject:note.name])
+//    {
+//        NSLog(@" ======= %@ ======= ",note.name);
+//        NSLog(@" ===> %@ ",note.userInfo);
+//    }
 }
 
 

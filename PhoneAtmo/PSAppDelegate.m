@@ -12,7 +12,6 @@
 #import "PSNetAtmoProfilesViewController.h"
 #import "PSNetAtmoDevicesViewController.h"
 #import "PSNetAtmoNavigationController.h"
-#import "PSNetAtmoSettingsViewController.h"
 #import "NSObject+Runtime.h"
 #import "PSNetAtmoNotification.h"
 #import "PSNetAtmoAccountWithAuthHandler.h"
@@ -36,17 +35,6 @@
 
 
 #pragma mark - Helper
-- (void) notificationCatched:(NSNotification*)note
-{
-
-//    if ([PSNETATMO_NOTIFICATIONS containsObject:note.name])
-//    {
-//        NSLog(@" ======= %@ ======= ",note.name);
-//        NSLog(@" ===> %@ ",note.userInfo);
-//    }
-}
-
-
 //+ (void)initialize
 //{
 //    DLogFuncName();
@@ -112,52 +100,35 @@
 #else
     [self initTestFlight];
 #endif
-    
-    
-    
+
     [PSNetAtmoNotification sharedInstance];
     [PSNetAtmoAccountWithAuthHandler sharedInstance];
 
-//#ifdef DEBUG
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationCatched:) name:nil object:nil];
-//#endif
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(managedObjectContextDidSave:)
-//                                                 name:NSManagedObjectContextDidSaveNotification
-//                                               object:self.backgroundManagedObjectContext];
-    
-    
-    // iOS5 Warning - NO Social Framework
-    // iOS5 Warning - NO Ad Framework
-    
 #define TRACKING_ID_APPSTORE    @"UA-50438211-1"
 #define TRACKING_ID_BETA        @"UA-50438211-2"
 #define TRACKING_ID_DEBUG       @"UA-50438211-3"
     
-
-
-    
     self.devicesViewController = [[PSNetAtmoDevicesViewController alloc] init];
     self.profilesViewController = [[PSNetAtmoProfilesViewController alloc] init];
-    self.settingsViewController = [[PSNetAtmoSettingsViewController alloc] init];
 
-    UIViewController *rootViewController = nil;
-    if ([[PSNetAtmoApiAccount sharedInstance] hasAccount])
-    {
-        rootViewController = self.devicesViewController;
-    }
-    else
-    {
-        NSLog(@"No ACCOUNT :(");
-        rootViewController = self.profilesViewController;
-    }
+//    UIViewController *rootViewController = nil;
+//    if ([[PSNetAtmoApiAccount sharedInstance] hasAccount])
+//    {
+//        rootViewController = self.devicesViewController;
+//    }
+//    else
+//    {
+//        NSLog(@"No ACCOUNT :(");
+//        rootViewController = self.profilesViewController;
+//    }
     
-    PSNetAtmoNavigationController * navController = [[PSNetAtmoNavigationController alloc] initWithRootViewController:rootViewController];
+    PSNetAtmoNavigationController * navController = [[PSNetAtmoNavigationController alloc] initWithRootViewController:self.devicesViewController];
     
     self.window = [[MBFingerTipWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = navController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     
     return YES;
 }

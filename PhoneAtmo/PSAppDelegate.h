@@ -13,7 +13,7 @@
 
 @class PSNetAtmoDevicesViewController;
 @class PSNetAtmoProfilesViewController;
-@class PSNetAtmoSettingsViewController;
+
 
 @interface PSAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -30,7 +30,6 @@
 
 @property (nonatomic) PSNetAtmoDevicesViewController *devicesViewController;
 @property (nonatomic) PSNetAtmoProfilesViewController *profilesViewController;
-@property (nonatomic) PSNetAtmoSettingsViewController *settingsViewController;
 
 + (NSManagedObjectContext *)managedObjectContext;
 

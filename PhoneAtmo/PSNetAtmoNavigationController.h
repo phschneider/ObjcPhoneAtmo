@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "REMenu.h";
+//#import "REMenu.h";
 
 @interface PSNetAtmoNavigationController : UINavigationController
 
-@property (nonatomic) REMenu *menu;
-- (void)toggleMenu;
+//@property (nonatomic) REMenu *menu;
+//- (void)toggleMenu;
 
 @end
 

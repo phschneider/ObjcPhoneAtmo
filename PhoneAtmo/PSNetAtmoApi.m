@@ -11,6 +11,7 @@
 #import "PSNetAtmo.h"
 #import "PSNetAtmoApi.h"
 #import "PSNetAtmoApiAccount.h"
+#import "PSNetAtmoAccountWithAuthHandler.h"
 #import "PSNetAtmoActivity.h"
 #import "SVProgressHUD/SVProgressHUD.h"
 #import <MapKit/MapKit.h>
@@ -259,12 +260,19 @@
     DEBUG_API_LogName();
     
     NXOAuth2Account * account = [[PSNetAtmoApiAccount sharedInstance] account];
-    NSAssert(account,@"no account given");
-    NSAssert(device.deviceID,@"no device_id given");
-    NSAssert(module.moduleID,@"no module_id given");
-    
-    if ( [[PSNetAtmoApiAccount sharedInstance] accountIsValid:account])
+    if (!account)
     {
+        NSLog(@"No Account for new meassures ... ");
+        [[PSNetAtmoAccountWithAuthHandler sharedInstance] requestAccountWithPreparedAuthorizationURLHandler];
+    }
+
+    
+    else if ( [[PSNetAtmoApiAccount sharedInstance] accountIsValid:account])
+    {
+        NSAssert(device.deviceID,@"no device_id given");
+        NSAssert(module.moduleID,@"no module_id given");
+
+        
 //    __block PSNetAtmoMeasure * measure = nil;
         [[PSNetAtmoActivity sharedInstance] show];
     [NXOAuth2Request performMethod:HTTP_METHOD

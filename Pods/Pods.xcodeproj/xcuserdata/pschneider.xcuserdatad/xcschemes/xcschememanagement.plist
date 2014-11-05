@@ -14,37 +14,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-PhoneAtmo-HexColors.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-PhoneAtmo-NXOAuth2Client.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-PhoneAtmo-REMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-PhoneAtmo-Reachability.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-PhoneAtmo-Reveal-iOS-SDK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-PhoneAtmo-SVProgressHUD.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-PhoneAtmo-TSMessages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,62 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2732D30E6BD54D9894225017</key>
+		<key>09297C1E617C44629C48FC51</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2AAA3F717644450C86AE6148</key>
+		<key>477F4D231037498D97EDD0C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2B34E699667F483597D004E0</key>
+		<key>530CF052470A4B79A4FD7099</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2DDF86B2B3A7401E8F9D5E85</key>
+		<key>6126306069BE4515AA3CDBB9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>45ACAFD3D49D4A17811278B8</key>
+		<key>A002757362614E3E884D4782</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>833B771A0FCB47AFB5DD8FFB</key>
+		<key>ADB7CF4BC5E94EB1914B18FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8FB08FED6DC84A3096808C91</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AE851786577B4AD999A0AFEE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B3106102DE8B4F38A6756272</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DD43BF881C2B450E94CA2FFF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E61B09AA484747E39FC6D4E1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FF60A60DAEEA4AC499C9A01F</key>
+		<key>C4A5E68090F14606BD734836</key>
 		<dict>
 			<key>primary</key>
 			<true/>

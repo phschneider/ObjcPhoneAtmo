@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 phschneider.net. All rights reserved.
 //
 
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "PSNetAtmo.h"
 #import "PSNetAtmoApi.h"
 #import "PSAppDelegate.h"
@@ -14,6 +15,9 @@
 #import "PSNetAtmoNoAccountView.h"
 #import "PSNetAtmoWebViewController.h"
 #import "PSNetAtmoNavigationController.h"
+#import "PSNetAtmoAccountWithAuthHandler.h"
+#import "PSNetAtmoProfileView.h"
+
 
 @interface PSNetAtmoDevicesViewController ()
 @property (nonatomic) UIScrollView *scrollView;
@@ -22,6 +26,7 @@
 @property (nonatomic) PSNetAtmoNoAccountView *noAccountView;
 @property (nonatomic) UILabel *noAccountLabel;
 @property (nonatomic) UILabel *centeredLabel;
+@property(nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
 @end
 
 @implementation PSNetAtmoDevicesViewController
@@ -35,7 +40,7 @@
     self = [super init];
     if (self)
     {
-        self.title = @"Home";
+//        self.title = @"Home";
         self.automaticallyAdjustsScrollViewInsets = NO;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountUpdated:) name:PSNETATMO_ACCOUNT_UPDATE_NOTIFICATION object:nil];
@@ -60,46 +65,61 @@
         self.pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
         [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
         [self.view addSubview:self.pageControl];
-        
-        CGRect frame = CGRectZero;
+
+
         float width = self.view.bounds.size.width;
         float height = self.view.bounds.size.height;
-        if(self.view.bounds.size.height > self.view.bounds.size.width)
+
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"973-user-selected"] style:UIBarButtonItemStylePlain target:self action:@selector(profileButtonTouched:)];
+
+            
+        self.noAccountView = [[PSNetAtmoProfileView alloc] initWithFrame:CGRectMake(ceil((self.view.bounds.size.width-200)/2),ceil((self.view.bounds.size.height-120)/2),200, 160)];
+        self.noAccountView.alpha = .5;
+        self.noAccountView.backgroundColor = [UIColor orangeColor];
+        [self.view addSubview:self.noAccountView];
+        
+        self.noAccountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ceil((height)/2), width, ceil(height/2))];
+        self.noAccountLabel.textAlignment = NSTextAlignmentCenter;
+        self.noAccountLabel.numberOfLines = 0;
+        self.noAccountLabel.alpha = 0.5;
+        self.noAccountLabel.text = @"No account, click here to authorize.";
+        self.noAccountLabel.textColor = [UIColor grayColor];
+        self.noAccountLabel.backgroundColor = [UIColor clearColor];
+        self.noAccountLabel.shadowColor = [UIColor darkGrayColor];
+        self.noAccountLabel.shadowOffset = CGSizeMake(-1,-1);
+
+        [self.view addSubview:self.noAccountLabel];
+
+        self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer:)];
+
+        if ( ![[PSNetAtmoApiAccount sharedInstance] hasAccount] )
         {
-            width = self.view.bounds.size.height;
-            height = self.view.bounds.size.width;
+            [self hideScrollView];
+            [self showNoAccount];
+
+            self.title = @"Hello";
         }
-        
-//        self.noAccountView = [[PSNetAtmoNoAccountView alloc] initWithFrame:CGRectMake(ceil((self.view.bounds.size.width-200)/2),ceil((self.view.bounds.size.height-120)/2),200, 120)];
-//        self.noAccountView.alpha = .0;
-//        [self.view addSubview:self.noAccountView];
-//        
-//        frame = CGRectMake(0, ceil((height)/2), width, ceil(height/2));
-//        self.noAccountLabel = [[UILabel alloc] initWithFrame:frame];
-//        self.noAccountLabel.textAlignment = NSTextAlignmentCenter;
-//        self.noAccountLabel.numberOfLines = 0;
-//        self.noAccountLabel.text = @"No account, click here to authorize.";
-//        self.noAccountLabel.textColor = [UIColor whiteColor];
-//        
-//        [self.view addSubview:self.noAccountLabel];
-        
-//        if ( ![[PSNetAtmoApiAccount sharedInstance] hasAccount] )
-//        {
-//            UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer:)];
-//            [self.view addGestureRecognizer: tapRecognizer];
-//            
-//            [self requestAccount];
-//        }
-//        else
-//        {
-//            [self hideNoAccount];
-//            
+        else
+        {
+            self.title = @"Devices";
+            [self showScrollView];
+            [self hideNoAccount];
+            
 //            [PSNetAtmoApi user];
 //            [PSNetAtmoApi devices];
-//            [self controllerDidChangeContent:self.fetchedResultsController];
-//        }
+
+            [self controllerDidChangeContent:self.fetchedResultsController];
+        }    
     }
     return self;
+}
+
+
+- (void) profileButtonTouched:(id)sender
+{
+    DLogFuncName();
+    
+    [self requestAccount];
 }
 
 - (void) updateDevices:(NSNotification *)notification
@@ -147,6 +167,7 @@
     DEBUG_DEVICES_LogName();
 
 #warning todo NXOAuth2AccountStore storeAccountsInDefaultKeychain
+    [self showScrollView];
     [self showDevices];
 }
 
@@ -172,6 +193,8 @@
 
     self.noAccountLabel.hidden = NO;
     self.noAccountView.hidden = NO;
+
+    [self.view addGestureRecognizer:self.tapRecognizer];
 }
 
 
@@ -182,15 +205,41 @@
 
     self.noAccountLabel.hidden = YES;
     self.noAccountView.hidden = YES;
+
+    [self.view removeGestureRecognizer:self.tapRecognizer];
 }
+
+
+- (void) showScrollView
+{
+    DLogFuncName();
+
+    self.scrollView.hidden = NO;
+}
+
+
+- (void) hideScrollView
+{
+    DLogFuncName();
+
+    self.scrollView.hidden = YES;
+}
+
 
 - (void) tapGestureRecognizer:(UIGestureRecognizer*)gestureRecognizer
 {
     DLogFuncName();
     DEBUG_DEVICES_LogName();
-
+    
+    [self requestAccount];
 }
 
+- (void) requestAccount
+{
+    DLogFuncName();
+    [SVProgressHUD show];
+    [[PSNetAtmoAccountWithAuthHandler sharedInstance] requestAccountWithPreparedAuthorizationURLHandler];
+}
 
 - (void) changePage:(id)sender
 {

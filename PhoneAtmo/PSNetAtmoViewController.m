@@ -21,7 +21,7 @@
     self = [super init];
     if (self)
     {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
+//        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.navigationController action:@selector(toggleMenu)];
     }
     return self;
 }
@@ -30,6 +30,7 @@
 // Bugfix da FormSheet ModalView keine Keyboard dimissen kann
 - (void)presentModalViewControllerInFormSheetSizeWithoutKeyboardDismissBug:(UIViewController*)viewController
 {
+    DLogFuncName();
     viewController.modalPresentationStyle = UIModalPresentationPageSheet;
     viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
@@ -52,9 +53,10 @@
 
 - (void)viewWillLayoutSubviews
 {
+    DLogFuncName();
     [super viewWillLayoutSubviews];
-    PSNetAtmoNavigationController *navigationController = (PSNetAtmoNavigationController *)self.navigationController;
-    [navigationController.menu setNeedsLayout];
+//    PSNetAtmoNavigationController *navigationController = (PSNetAtmoNavigationController *)self.navigationController;
+//    [navigationController.menu setNeedsLayout];
 }
 
 
