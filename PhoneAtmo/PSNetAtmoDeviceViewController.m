@@ -103,18 +103,25 @@
 #pragma mark - TableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int numberOfDevices = [[self.fetchedResultsController fetchedObjects] count];
-    NSLog(@"number of devices = %d", numberOfDevices);
+    int numberOfDevices = [PSNetAtmoDevice allDevicesInContext:APPDELEGATE.managedObjectContext];
+    int numberOfModules = [[self.fetchedResultsController fetchedObjects] count];
+    NSLog(@"number of devices = %d", numberOfModules);
     UINavigationBar *navBar = self.navigationController.navigationBar;
     float height = self.view.bounds.size.height - navBar.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height;
     NSLog(@"Height = %f",height);
 
-    NSLog(@"RowHeight = %f",ceil( height /numberOfDevices));
+    if (numberOfDevices > 1)
+    {
+        height -= 10;
+    }
+
+#warning todo - pagecontrol height!?
+    NSLog(@"RowHeight = %f",ceil( height / numberOfModules));
     
 #warning todo - minheight
 #warning todo - maxheight
     
-    return ceil( height /numberOfDevices);
+    return ceil( height / numberOfModules);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -431,30 +431,6 @@
 }
 
 
-//+ (NSArray*) allDevicesInContext:(NSManagedObjectContext *)context
-//{
-//    DLogFuncName();
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:NETATMO_ENTITY_DEVICE inManagedObjectContext:context];
-//    [fetchRequest setEntity:entity];
-//
-//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"deviceID" ascending:NO];
-//    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-//    [fetchRequest setSortDescriptors:sortDescriptors];
-//    
-//    
-//    NSError *error;
-//    NSArray *items = [context executeFetchRequest:fetchRequest error:&error];
-//    
-//    if (error)
-//    {
-//        NSLog(@"FETCH ERROR (allCloudFilesInContext) => %@, %@", error, [error userInfo]);
-//    }
-//    
-//    return items;
-//}
-
-
 - (BOOL) isPublic
 {
     DLogFuncName();
@@ -505,5 +481,27 @@
 //{
 //    return [NSString stringWithFormat:@"DESCRIPTION (DEVICE):\n ID: %@\n Name: %@\n", self.deviceId, self.deviceName];
 //}
+
+
++ (NSArray*)allDevicesInContext:(NSManagedObjectContext *)context
+{
+    DLogFuncName();
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NETATMO_ENTITY_DEVICE];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"ANY owners == %@", [PSNetAtmoUser currentuser]]];
+
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+
+    NSError *error;
+    NSArray *items = [context executeFetchRequest:request error:&error];
+
+    if (error)
+    {
+        NSLog(@"FETCH ERROR (allCloudFilesInContext) => %@, %@", error, [error userInfo]);
+    }
+
+    return items;
+}
 
 @end
