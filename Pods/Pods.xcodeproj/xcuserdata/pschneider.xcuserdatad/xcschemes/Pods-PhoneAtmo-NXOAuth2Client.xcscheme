@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8E5916E6B2004DA7AC895A31"
+               BlueprintIdentifier = "E801C80175274348AC0CA551"
                BuildableName = "libPods-PhoneAtmo-NXOAuth2Client.a"
                BlueprintName = "Pods-PhoneAtmo-NXOAuth2Client"
                ReferencedContainer = "container:Pods.xcodeproj">

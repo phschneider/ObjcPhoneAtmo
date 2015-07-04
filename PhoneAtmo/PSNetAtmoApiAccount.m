@@ -39,7 +39,7 @@ static PSNetAtmoApiAccount * instance= nil;
     self = [super init];
     if (self)
     {
-        [self addAccountsFromDatabaseToAccountStore];
+//        [self addAccountsFromDatabaseToAccountStore];
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountStoreDidChange:) name:NXOAuth2AccountStoreAccountsDidChangeNotification object: [NXOAuth2AccountStore sharedStore]];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountStoreDidFailToRequestAccess:) name:NXOAuth2AccountStoreDidFailToRequestAccessNotification object:[NXOAuth2AccountStore sharedStore]];
@@ -89,11 +89,18 @@ static PSNetAtmoApiAccount * instance= nil;
     DEBUG_ACCOUNT_LogName();
     
     NSSortDescriptor * sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"accessToken.expiresAt" ascending:YES selector:@selector(compare:)];
-    NSArray * unsortedArray = [[NXOAuth2AccountStore sharedStore] accounts];
+    NSArray * unsortedArray = [[NXOAuth2AccountStore sharedStore] accountsWithAccountType:ACCOUNT_TYPE];
     
     self.oAuthAccount = [[unsortedArray sortedArrayUsingDescriptors:@[sortDescriptor]] lastObject];
     DEBUG_ACCOUNT_Log(@"Accounts = %@",[unsortedArray sortedArrayUsingDescriptors:@[sortDescriptor]]);
     DEBUG_ACCOUNT_Log(@"Account = %@",self.oAuthAccount);
+    
+    if ([unsortedArray count] > 1)
+    {
+        dispatch_async(dispatch_get_main_queue(),^{
+            [[[UIAlertView alloc] initWithTitle:@"Multiple Accounts" message:unsortedArray delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        });
+    }
 }
 
 
@@ -103,12 +110,7 @@ static PSNetAtmoApiAccount * instance= nil;
     DEBUG_ACCOUNT_LogName();
     
 // Muss immer durchgeführt werden, das ist die configuration welche benötigt wird ...
-    [[NXOAuth2AccountStore sharedStore] setClientID:CLIENT_ID
-                                             secret:CLIENT_SECRET
-                                   authorizationURL:[NSURL URLWithString:AUTH_URL]
-                                           tokenURL:[NSURL URLWithString:REQUEST_TOKEN]
-                                        redirectURL:[NSURL URLWithString:@"http://phoneatmoapp.com"]
-                                     forAccountType:ACCOUNT_TYPE];
+    [self refreshAccount];
     
     if ([self hasAccount])
     {
@@ -116,6 +118,23 @@ static PSNetAtmoApiAccount * instance= nil;
     }
 }
 
+
+- (void) refreshAccount
+{
+    DLogFuncName();
+    DEBUG_ACCOUNT_LogName();
+    //    [NXOAuth2Request performMethod:@"POST" onResource:[NSURL URLWithString:@"https://api.netatmo.net/oauth2/token"]
+    //usingParameters:@{@"grant_type" : @"refresh_token",
+    //                  @"refresh_token" : refreshToken, //account.accessToken.refreshToken,
+    //                  @"client_id" : CLIENT_ID,
+    //                  @"client_secret" : CLIENT_SECRET}
+    //withAccount:account sendProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal)  {  }// e.g., update a progress indicator }
+    //responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error){
+    //
+    //    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
+
+
+}
 
 - (void) accountStoreNewAccountUser:(NSNotification *)notification
 {
@@ -237,6 +256,8 @@ static PSNetAtmoApiAccount * instance= nil;
 {
     DLogFuncName();
     DEBUG_ACCOUNT_LogName();
+
+//    return;
     
     for (NXOAuth2Account * account in [[NXOAuth2AccountStore sharedStore] accounts])
     {
@@ -255,6 +276,10 @@ static PSNetAtmoApiAccount * instance= nil;
         }
     }
     
+    dispatch_async(dispatch_get_main_queue(),^{
+        [[[UIAlertView alloc] initWithTitle:@"Checks Accounts" message:@"" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+    });
+    
     [self cleanAccounts];
 }
 
@@ -264,6 +289,7 @@ static PSNetAtmoApiAccount * instance= nil;
     DLogFuncName();
     DEBUG_ACCOUNT_LogName();
     
+//    return 
     if (self.account)
     {
         for (NXOAuth2Account * account in [[NXOAuth2AccountStore sharedStore] accounts])
@@ -281,6 +307,10 @@ static PSNetAtmoApiAccount * instance= nil;
 //            [[NXOAuth2AccountStore sharedStore] removeAccount:self.account];
 //        }
     }
+    
+    dispatch_async(dispatch_get_main_queue(),^{
+        [[[UIAlertView alloc] initWithTitle:@"Clean Accounts" message:@"" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+    });
 }
 
 

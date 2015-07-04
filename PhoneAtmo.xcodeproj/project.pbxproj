@@ -601,6 +601,15 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = phschneider.net;
+				TargetAttributes = {
+					22E72D2819045EA80015D3B2 = {
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = E5F1617458F8721BD7600355 /* Build configuration list for PBXProject "PhoneAtmo" */;
 			compatibilityVersion = "Xcode 3.2";

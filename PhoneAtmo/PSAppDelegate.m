@@ -20,8 +20,6 @@
 #ifdef CONFIGURATION_AppStore
     #import <Crashlytics/Crashlytics.h>
 #else
-    #import "TestFlight.h"
-    #import <AdSupport/AdSupport.h>
 //      #import <LookBack/LookBack.h>
 #endif
 
@@ -35,14 +33,26 @@
 
 
 #pragma mark - Helper
-//+ (void)initialize
-//{
-//    DLogFuncName();
++ (void)initialize
+{
+    DLogFuncName();
+    // Siehe Configure your Client
+    // https://github.com/nxtbgthng/OAuth2Client
+    // Step 2
+    // Siehe https://dev.netatmo.com/doc/authentication/refreshtoken
+
+    [[NXOAuth2AccountStore sharedStore] setClientID:CLIENT_ID
+                                             secret:CLIENT_SECRET
+                                   authorizationURL:[NSURL URLWithString:AUTH_URL]
+                                           tokenURL:[NSURL URLWithString:REQUEST_TOKEN]
+                                        redirectURL:[NSURL URLWithString:@"http://phoneatmoapp.com"]
+                                     forAccountType:ACCOUNT_TYPE];
+    
 //    [[iRate sharedInstance] setAppStoreID:783111887];
 //    [[iRate sharedInstance] setUsesPerWeekForPrompt:5.0];
 //    [[iRate sharedInstance] setRemindPeriod:7];
 //    [[iRate sharedInstance] setDaysUntilPrompt:7];
-//}
+}
 
 
 //- (void)initIVersion
@@ -53,26 +63,6 @@
 //    [[iVersion sharedInstance] setCheckPeriod:3];
 //    [[iVersion sharedInstance] setCheckPeriod:3];
 //}
-
-
-- (void) initTestFlight
-{
-    DLogFuncName();
-    DEBUG_APPCYCLE_LogName();
-    
-#ifdef CONFIGURATION_Beta
-    NSLog(@"Beta Build");
-        NSLog(@"PhoneAtmo Build");
-        [TestFlight takeOff:@"66091025-afcf-4ada-8077-bfcfd501253e"];
-#endif
-    
-#ifdef CONFIGURATION_Debug
-    NSLog(@"Debug Build");
-        NSLog(@"PhoneAtmo Build");
-        [TestFlight takeOff:@"e9f0d4b0-8d81-4698-853d-2a4cb7d26171"];
-#endif
-    
-}
 
 
 - (void) initCrashLytics
@@ -97,8 +87,6 @@
 #ifdef CONFIGURATION_AppStore
     NSLog(@"AppStore Build");
     [self initCrashLytics];
-#else
-    [self initTestFlight];
 #endif
 
     [PSNetAtmoNotification sharedInstance];

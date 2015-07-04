@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E9C3C02DA10E4DCDA1715DAE"
+               BlueprintIdentifier = "EA10B799D1094107903E5B19"
                BuildableName = "libPods-PhoneAtmo-CrashlyticsFramework.a"
                BlueprintName = "Pods-PhoneAtmo-CrashlyticsFramework"
                ReferencedContainer = "container:Pods.xcodeproj">

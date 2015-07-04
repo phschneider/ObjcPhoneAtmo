@@ -1,25 +1,22 @@
 PODS:
-  - CrashlyticsFramework (2.2.4)
+  - CrashlyticsFramework (2.2.5.2)
   - Fingertips (0.3.0)
   - NXOAuth2Client (1.2.5)
-  - SVProgressHUD (1.0)
-  - TestFlightSDK (3.0.0)
+  - SVProgressHUD (1.1.2)
   - UIDevice-Hardware (0.1.5)
 
 DEPENDENCIES:
-  - CrashlyticsFramework (= 2.2.4)
+  - CrashlyticsFramework (= 2.2.5.2)
   - Fingertips (= 0.3.0)
   - NXOAuth2Client (= 1.2.5)
-  - SVProgressHUD (= 1.0)
-  - TestFlightSDK (= 3.0.0)
+  - SVProgressHUD (= 1.1.2)
   - UIDevice-Hardware (= 0.1.5)
 
 SPEC CHECKSUMS:
-  CrashlyticsFramework: 0c28a2c07a51b7691e6668b83824b0b0be77f307
+  CrashlyticsFramework: 4e91082f3019bea7e718e1b67b0a3b56729dbc5d
   Fingertips: 09d223a390349b317a51d4c941d778bdb661c4e1
   NXOAuth2Client: 9359e8e703bb8357f41c1e169ec3e107612a794c
-  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
-  TestFlightSDK: 36b8a207c5a119a3144aa2e6d24973eb9d5e0d0a
+  SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
   UIDevice-Hardware: df983265bb5c6f3f66d63c29841a1d6649b1c8f4
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.32.1

@@ -12,8 +12,6 @@
 
 #define CLIENT_ID       @"535ab3011e77596328f2e27b"
 #define CLIENT_SECRET   @"VLEkW9KIu1Npnj30q41UZVBwbSwaba9"
-#define REQUEST_TOKEN   @"http://api.netatmo.net/oauth2/token"
-#define AUTH_URL        @"http://api.netatmo.net/oauth2/authorize"
 #define ACCOUNT_TYPE    @"PhoneAtmo"
 
 #define DEFAULTS_APP_FIRST_START_DATE        @"firstStartDate"
@@ -21,11 +19,15 @@
 #define DEFAULTS_APP_LAST_VERSION            @"lastVersion"
 #define DEFAULTS_APP_LAST_VERSION_DATE       @"lastVersionDate"
 
-#define HTTP_METHOD @"GET"
+#define HTTP_METHOD @"POST"
 
-#define NETATMO_URL_USER            @"http://api.netatmo.net/api/getuser"
-#define NETATMO_URL_DEVICE_LIST     @"http://api.netatmo.net/api/devicelist"
-#define NETATMO_URL_DEVICE_MEASSURE @"http://api.netatmo.net/api/getmeasure"
+#define NETATMO_URL                 @"https://api.netatmo.net/"
+#define REQUEST_TOKEN               [NSString stringWithFormat:@"%@%@",NETATMO_URL,@"oauth2/token"]
+#define AUTH_URL                    [NSString stringWithFormat:@"%@%@",NETATMO_URL,@"oauth2/authorize"]
+#define NETATMO_URL_API             [NSString stringWithFormat:@"%@%@",NETATMO_URL,@"api/"]
+#define NETATMO_URL_USER            [NSString stringWithFormat:@"%@%@",NETATMO_URL_API,@"getuser"]
+#define NETATMO_URL_DEVICE_LIST     [NSString stringWithFormat:@"%@%@",NETATMO_URL_API,@"devicelist"]
+#define NETATMO_URL_DEVICE_MEASSURE [NSString stringWithFormat:@"%@%@",NETATMO_URL_API,@"getmeasure"]
 
 #define NETATMO_ENTITY_DEVICE_PLACE     @"PSNetAtmoDevicePlace"
 #define NETATMO_ENTITY_DEVICE           @"PSNetAtmoDevice"

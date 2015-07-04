@@ -24,11 +24,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-PhoneAtmo-TestFlightSDK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-PhoneAtmo-UIDevice-Hardware.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09297C1E617C44629C48FC51</key>
+		<key>283CE75E53034FAA98B4D1A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>477F4D231037498D97EDD0C7</key>
+		<key>653037107CE44D17834B6418</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>530CF052470A4B79A4FD7099</key>
+		<key>E801C80175274348AC0CA551</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6126306069BE4515AA3CDBB9</key>
+		<key>EA10B799D1094107903E5B19</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A002757362614E3E884D4782</key>
+		<key>EB947FA61CEF4BAAA51E40A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ADB7CF4BC5E94EB1914B18FF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C4A5E68090F14606BD734836</key>
+		<key>EF6EE4D9B2E4465FA26DBADB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
